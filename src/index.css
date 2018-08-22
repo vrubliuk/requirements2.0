@@ -1,5 +1,29 @@
+@font-face {
+  font-family: roboto;
+  src: url("./assets/fonts/RobotoCondensed-Regular.ttf");
+}
+
+@font-face {
+  font-family: roboto;
+  src: url("./assets/fonts//RobotoCondensed-Bold.ttf");
+  font-weight: bold;
+}
+
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: roboto, sans-serif;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+a {
+  text-decoration: none;
 }
