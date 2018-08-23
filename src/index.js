@@ -11,12 +11,14 @@ import auth from "./store/reducers/auth";
 import requirements from "./store/reducers/requirements";
 import officeLeaders from "./store/reducers/officeLeaders";
 import railLoads from "./store/reducers/railLoads";
+import temp from "./store/reducers/temp"
 
 const rootReducer = combineReducers({
   auth,
   requirements,
   officeLeaders,
-  railLoads
+  railLoads,
+  temp
 });
 
 const sagaMiddleware = createSagaMiddleware();
