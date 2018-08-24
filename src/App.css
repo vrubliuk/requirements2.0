@@ -1,23 +1,14 @@
-.App {
-  text-align: center;
+.App .Navigation {
+  position: fixed;
+  top: 0;
+  left: -150px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.App .Log {
+  position: fixed;
+  bottom: 25px;
+  left: -150px;
 }
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
+.App .Log:hover {
+  transform: translate(150px)
 }

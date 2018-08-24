@@ -1,0 +1,16 @@
+.Nav {
+  cursor: pointer;
+  display: inline-block;
+  border: none;
+  transition: 0.5s;
+  padding: 15px;
+  width: 160px;
+  color: white;
+  height: 50px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.Nav.active {
+  width: 170px;
+}

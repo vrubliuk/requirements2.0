@@ -1,0 +1,12 @@
+.Navigation {
+  display: flex;
+  flex-direction: column;
+}
+
+.Navigation .Nav {
+  margin-top: 25px;
+}
+
+.Navigation .Nav:hover {
+  transform: translate(150px)
+}

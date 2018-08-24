@@ -1,6 +1,8 @@
-export const updateState = (oldState, updatedValues) => {
+const updateState = (oldState, updatedValues) => {
   return {
     ...oldState,
     ...updatedValues
   };
 };
+
+export default updateState;
