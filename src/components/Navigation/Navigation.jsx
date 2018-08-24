@@ -6,27 +6,23 @@ const Navigation = () => {
   const navs = [
     {
       name: "Requirements",
-      color: "#f44336",
       to: "/"
     },
     {
       name: "Office leaders",
-      color: "#2196F3",
       to: "/office-leaders"
     },
     {
       name: "Rail loads",
-      color: "#4CAF50",
       to: "/rail-loads"
     },
     {
       name: "Invoicing",
-      color: "#ff9900",
       to: "https://vrubliuk.github.io/invoicing/"
     }
   ].map((nav, i) => {
     return (
-      <Nav color={nav.color} to={nav.to} key={i}>
+      <Nav to={nav.to} key={i}>
         {nav.name}
       </Nav>
     );

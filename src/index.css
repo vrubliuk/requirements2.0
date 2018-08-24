@@ -27,3 +27,25 @@ input::-ms-clear {
 a {
   text-decoration: none;
 }
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  font-size: 1.2rem;
+  height: 40px;
+  border: none;
+  transition: 0.2s;
+  position: relative;
+  padding: 0 10px;
+  color: white;
+  width: 100px;
+}
+
+input {
+  font-family: inherit;
+  font-size: 1.2rem;
+  height: 40px;
+  border: none;
+  padding: 0 10px;
+  user-select: auto;
+}
