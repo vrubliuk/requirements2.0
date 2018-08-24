@@ -1,8 +1,8 @@
 import * as actionTypes from './actionTypes'
 
-export const openInModal = (component) => {
+export const showInModal = (component) => {
   return {
-    type: actionTypes.OPEN_IN_MODAL,
+    type: actionTypes.SHOW_IN_MODAL,
     component
   }
 }

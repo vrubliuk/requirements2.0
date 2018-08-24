@@ -1,3 +1,3 @@
-export {setToken} from "./auth"
+export {setToken, toggleError, logIn, logOut} from "./auth"
 
-export {openInModal} from "./temp"
+export {showInModal} from "./temp"

@@ -5,10 +5,10 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actionCreators from "../../../store/actions/actionCreators";
 
-const Close = ({ location, openInModal }) => {
+const Close = ({ location, showInModal }) => {
   const color = colors[location.pathname].dark;
   const handleClick = () => {
-    openInModal(null);
+    showInModal(null);
   };
 
   return (
@@ -24,7 +24,7 @@ const Close = ({ location, openInModal }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    openInModal: component => dispatch(actionCreators.openInModal(component))
+    showInModal: component => dispatch(actionCreators.showInModal(component))
   };
 };
 

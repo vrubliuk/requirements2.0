@@ -3,12 +3,6 @@
   src: url("./assets/fonts/RobotoCondensed-Regular.ttf");
 }
 
-@font-face {
-  font-family: roboto;
-  src: url("./assets/fonts//RobotoCondensed-Bold.ttf");
-  font-weight: bold;
-}
-
 * {
   box-sizing: border-box;
   outline: none;

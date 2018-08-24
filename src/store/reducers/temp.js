@@ -5,7 +5,7 @@ const initialState = {
   modal: null
 };
 
-const openInModal = (state, action) => {
+const showInModal = (state, action) => {
   return updateState(state, {
     modal: action.component
   });
@@ -13,8 +13,8 @@ const openInModal = (state, action) => {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.OPEN_IN_MODAL:
-      return openInModal(state, action);
+    case actionTypes.SHOW_IN_MODAL:
+      return showInModal(state, action);
     default:
       return state;
   }
