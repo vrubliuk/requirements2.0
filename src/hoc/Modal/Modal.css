@@ -13,10 +13,63 @@
 
 .Modal__inner {
   position: relative;
+  background: #d9d9d9;
 }
 
 .Modal__inner .Close {
   position: absolute;
   top: -20px;
   right: -20px;
+}
+
+.Modal__title {
+  background: #333;
+  font-size: 1.4rem;
+  color: white;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Modal__form {
+  padding: 10px;
+}
+
+.Modal__label {
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.Modal__input {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.Modal__textarea {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+
+
+.Modal__footer {
+ position: relative;
+ height: 40px;
+}
+
+.Modal__error {
+  font-size: 0.9rem;
+  font-weight: 900;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+}
+
+.Modal__button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }

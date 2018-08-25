@@ -7,7 +7,7 @@ const Log = ({ token,  showInModal, logOut }) => {
   let text = token ? "Log out" : "Log in";
 
   let handleClick = () => {
-    token ? logOut() : showInModal("auth");
+    token ? logOut() : showInModal("Auth");
   };
 
   return <button className="Log" onClick={handleClick}>{text}</button>;

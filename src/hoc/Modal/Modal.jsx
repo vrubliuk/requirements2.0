@@ -3,14 +3,16 @@ import "./Modal.css";
 import { connect } from "react-redux";
 import Close from "../../components/buttons/Close/Close.jsx"
 import Auth from "../../components/popups/Auth/Auth.jsx"
+import RequirementsRow from "../../components/popups/RequirementsRow/RequirementsRow.jsx"
+import OfficesRow from "../../components/popups/OfficesRow/OfficesRow.jsx"
 
 const Modal = ({modal}) => {
 
   const popups = {
-    auth: <Auth/>
+    Auth: <Auth/>,
+    RequirementsRow: <RequirementsRow/>,
+    OfficesRow: <OfficesRow/>
   }
-
-
 
   return (
     <div className="Modal">

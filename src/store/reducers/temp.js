@@ -2,7 +2,7 @@ import * as actionTypes from "../actions/actionTypes";
 import updateState from "../utility/updateState";
 
 const initialState = {
-  spinner: true,
+  spinner: false,
   modal: null
 };
 const setSpinner = (state, action) => {

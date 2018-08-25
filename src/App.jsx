@@ -6,9 +6,10 @@ import Spinner from "./components/Spinner/Spinner.jsx";
 import Navigation from "./components/Navigation/Navigation";
 import Log from "./components/buttons/Log/Log.jsx";
 import Requirements from "./containers/Requirements/Requirements.jsx";
-import OfficeLeaders from "./containers/OfficeLeaders/OfficeLeaders.jsx";
+import Offices from "./containers/Offices/Offices.jsx";
 import RailLoads from "./containers/RailLoads/RailLoads.jsx";
 import Modal from "./hoc/Modal/Modal";
+import Add from "./components/buttons/Add/Add.jsx"
 
 class App extends Component {
   render() {
@@ -22,10 +23,11 @@ class App extends Component {
             <Log />
             <Switch>
               <Route path="/" exact component={Requirements} />
-              <Route path="/office-leaders" exact component={OfficeLeaders} />
+              <Route path="/offices" exact component={Offices} />
               <Route path="/rail-loads" exact component={RailLoads} />
               <Redirect to="/" />
             </Switch>
+            <Add/>
             {this.props.modal && <Modal />}
           </Fragment>
         )}

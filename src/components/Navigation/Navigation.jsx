@@ -9,8 +9,8 @@ const Navigation = () => {
       to: "/"
     },
     {
-      name: "Office leaders",
-      to: "/office-leaders"
+      name: "Offices",
+      to: "/offices"
     },
     {
       name: "Rail loads",

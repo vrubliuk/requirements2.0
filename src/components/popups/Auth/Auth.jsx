@@ -25,19 +25,19 @@ class Auth extends Component {
     const color = colors[this.props.location.pathname].dark;
     return (
       <div className="Auth">
-        <div className="Auth__title">Log in to Requirements</div>
-        <form className="Auth__form" onSubmit={this.handleSubmit}>
-          <div className="Auth__label">Email address</div>
-          <input className="Auth__input" type="email" required value={this.state.email} onChange={e => this.handleInput(e, "email")} />
-          <div className="Auth__label">Password</div>
-          <input className="Auth__input" type="password" required value={this.state.password} onChange={e => this.handleInput(e, "password")} />
-          <div className="Auth__footer">
+        <div className="Modal__title">Log in to Requirements</div>
+        <form className="Modal__form" onSubmit={this.handleSubmit}>
+          <div className="Modal__label">Email address</div>
+          <input className="Modal__input" type="email" required value={this.state.email} onChange={e => this.handleInput(e, "email")} />
+          <div className="Modal__label">Password</div>
+          <input className="Modal__input" type="password" required value={this.state.password} onChange={e => this.handleInput(e, "password")} />
+          <div className="Modal__footer">
             {this.props.error && (
-              <div className="Auth__error" style={{ color }}>
+              <div className="Modal__error" style={{ color }}>
                 Incorrect email address or password
               </div>
             )}
-            <button className="Auth__button" style={{ background: color }} type="submit">
+            <button className="Modal__button" style={{ background: color }} type="submit">
               Log in
             </button>
           </div>

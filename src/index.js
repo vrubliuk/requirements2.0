@@ -10,7 +10,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import createSagaMiddleware from "redux-saga";
 import auth from "./store/reducers/auth";
 import requirements from "./store/reducers/requirements";
-import officeLeaders from "./store/reducers/officeLeaders";
+import offices from "./store/reducers/offices";
 import railLoads from "./store/reducers/railLoads";
 import temp from "./store/reducers/temp"
 import {watchAuth} from "./store/sagas"
@@ -18,7 +18,7 @@ import {watchAuth} from "./store/sagas"
 const rootReducer = combineReducers({
   auth,
   requirements,
-  officeLeaders,
+  offices,
   railLoads,
   temp
 });

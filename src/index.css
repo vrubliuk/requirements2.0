@@ -41,5 +41,16 @@ input {
   height: 40px;
   border: none;
   padding: 0 10px;
-  user-select: auto;
+  background-color: white;
+}
+
+textarea {
+  font-family: inherit;
+  font-size: 1.2rem;
+  resize: none;
+  height: 120px;
+  border: none;
+  padding: 10px;
+  background-color: white;
+
 }

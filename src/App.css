@@ -12,3 +12,9 @@
 .App .Log:hover {
   transform: translate(150px)
 }
+
+.App .Add {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+}

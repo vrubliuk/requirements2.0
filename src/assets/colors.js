@@ -3,7 +3,7 @@ const colors = {
     dark: "rgb(244,67,54)",
     light: "rgba(244,67,54, 0.5)"
   },
-  "/office-leaders": {
+  "/offices": {
     dark: "rgb(33,150,243)",
     light: "rgba(33,150,243, 0.5)"
   },
