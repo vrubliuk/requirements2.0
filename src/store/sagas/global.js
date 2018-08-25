@@ -3,11 +3,10 @@ import { put, select  } from "redux-saga/effects";
 import * as actionCreators from "../actions/actionCreators";
 import * as API from "../utility/API";
 
-export function* addRequirement(action) {
-  const state = yield select()
+export function* fetchDatabase() {
   try {
-    const res = yield API.postRequirement(state.auth.token, action.сustomer, action.documentation, action.releaseSheetLink, action.releaseSheetAE);
-    yield console.log(res.data);
+    const res = yield Promise.all([API.getRequirements(), API.getOffices(), API.getRailLoads1(), API.getRailLoads2()]);
+    yield console.log(res);
     
     // yield (localStorage.refreshToken = res.data.refreshToken);
     // yield put(actionCreators.setToken(res.data.idToken));

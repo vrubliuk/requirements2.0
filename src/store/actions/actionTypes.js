@@ -3,7 +3,9 @@ export const TOGGLE_ERROR = "TOGGLE_ERROR"
 export const LOG_IN = "LOG_IN"
 export const LOG_OUT = "LOG_OUT"
 
-
-
 export const SHOW_IN_MODAL = "SHOW_IN_MODAL"
 export const SET_SPINNER = "SET_SPINNER"
+
+export const ADD_REQUIREMENT = "ADD_REQUIREMENT"
+
+export const FETCH_DATABASE = "FETCH_DATABASE"

@@ -20,7 +20,7 @@ class AddOrEditRequirement extends Component {
   handleSubmit = e => {
     if (!e.target.checkValidity()) return;
     e.preventDefault();
-     // this.props.logIn(this.state.email, this.state.password);
+    this.props.addRequirement(this.state.сustomer, this.state.documentation, this.state.releaseSheetLink, this.state.releaseSheetAE);
 
   };
 
@@ -40,7 +40,7 @@ class AddOrEditRequirement extends Component {
           <input className="Modal__input" type="text" value={this.state.releaseSheetAE} onChange={e => this.handleInput(e, "releaseSheetAE")} />
           <div className="Modal__footer">
             <button className="Modal__button" style={{ background: color }} type="submit">
-              Save
+              Add
             </button>
           </div>
         </form>
@@ -51,7 +51,7 @@ class AddOrEditRequirement extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    showInModal: component => dispatch(actionCreators.showInModal(component))
+    addRequirement: (сustomer, documentation, releaseSheetLink, releaseSheetAE) => dispatch(actionCreators.addRequirement(сustomer, documentation, releaseSheetLink, releaseSheetAE))
   };
 };
 

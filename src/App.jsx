@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import "./App.css";
 import { connect } from "react-redux";
 import { withRouter, Switch, Route, Redirect } from "react-router-dom";
+import * as actionCreators from "./store/actions/actionCreators"
 import Spinner from "./components/Spinner/Spinner.jsx";
 import Navigation from "./components/Navigation/Navigation";
 import Log from "./components/buttons/Log/Log.jsx";
@@ -12,6 +13,12 @@ import Modal from "./hoc/Modal/Modal";
 import Add from "./components/buttons/Add/Add.jsx"
 
 class App extends Component {
+
+  componentDidMount() {
+    this.props.fetchDatabase()
+  }
+
+
   render() {
     return (
       <div className="App">
@@ -43,4 +50,10 @@ const mapStateToProps = state => {
   };
 };
 
-export default withRouter(connect(mapStateToProps)(App));
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchDatabase: () => dispatch(actionCreators.fetchDatabase())
+  };
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

@@ -13,7 +13,8 @@ import requirements from "./store/reducers/requirements";
 import offices from "./store/reducers/offices";
 import railLoads from "./store/reducers/railLoads";
 import temp from "./store/reducers/temp"
-import {watchAuth} from "./store/sagas"
+import {watchGlobal, watchAuth, watchRequirements} from "./store/sagas"
+
 
 const rootReducer = combineReducers({
   auth,
@@ -35,7 +36,9 @@ const store = createStore(
   composeEnhancers(applyMiddleware(sagaMiddleware))
 );
 
+sagaMiddleware.run(watchGlobal);
 sagaMiddleware.run(watchAuth);
+sagaMiddleware.run(watchRequirements);
 
 ReactDOM.render(
   <Provider store={store}>
