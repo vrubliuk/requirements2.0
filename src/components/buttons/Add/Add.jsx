@@ -11,7 +11,7 @@ const Add = ({location, showInModal}) => {
   const popups = {
     "/": "RequirementsRow",
     "/offices": "OfficesRow",
-
+    "/rail-loads": "RailLoadsRow",
   }
 
   const handleClick = () => {

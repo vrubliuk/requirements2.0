@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import * as actionCreators from "../../../store/actions/actionCreators";
 
-class AddOrEditRequirement extends Component {
+class RequirementsRow extends Component {
   state = {
     сustomer: "",
     documentation: "",
@@ -63,5 +63,5 @@ export default withRouter(
   connect(
     null,
     mapDispatchToProps
-  )(AddOrEditRequirement)
+  )(RequirementsRow)
 );

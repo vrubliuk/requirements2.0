@@ -22,6 +22,23 @@
   right: -20px;
 }
 
+.Modal__header {
+  height: 40px;
+  display: flex;
+  padding: 5px;
+}
+
+.Modal__switch {
+  cursor: pointer;
+  flex: 1;
+  margin: 0 5px;
+  border-bottom: 2px solid #4b4f53; 
+  display: flex;
+  align-items: center;
+  height: 40px;
+  justify-content: center;
+}
+
 .Modal__title {
   background: #333;
   font-size: 1.4rem;
