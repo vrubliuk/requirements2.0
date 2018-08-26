@@ -38,7 +38,7 @@ class OfficesRow extends Component {
           <input className="Modal__input" type="text" required value={this.state.office} onChange={e => this.handleInput(e, "office")} />
           <div className="Modal__label">Abbreviation</div>
           <input className="Modal__textarea" type="text" required value={this.state.abbreviation} onChange={e => this.handleInput(e, "abbreviation")} />
-          <div className="Modal__label">Office leader</div>
+          <div className="Modal__label">Leader</div>
           <input className="Modal__input" type="text" required value={this.state.leader} onChange={e => this.handleInput(e, "leader")} />
           <div className="Modal__label">GSM</div>
           <input className="Modal__input" type="text" required value={this.state.GSM} onChange={e => this.handleInput(e, "GSM")} />

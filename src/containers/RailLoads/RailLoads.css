@@ -1,0 +1,13 @@
+.RailLoads {
+  padding: 0 100px;
+}
+
+.RailLoads__inner {
+  max-width: 1250px;
+  margin: auto;
+  padding: 25px 0 0;
+}
+
+.RailLoads__inner .Table {
+  margin-bottom: 25px;
+}

@@ -16,7 +16,14 @@ const TableRow = ({ table, key, row, columns, location }) => {
   } else {
     rowColumns = columns.map((column, i) => (
       <td className="TableRow" style={column.style} key={i}>
-        {row[column.name]}
+        {
+          row[
+            column.name
+              .split(" ")
+              .map((word, i) => (i > 0 ? word.slice(0, 1).toUpperCase() + word.slice(1) : word))
+              .join("")
+          ]
+        }
       </td>
     ));
     style = {

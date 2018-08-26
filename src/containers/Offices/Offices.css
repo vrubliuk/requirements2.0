@@ -1,0 +1,9 @@
+.Offices {
+  padding: 0 100px;
+}
+
+.Offices__inner {
+  max-width: 1250px;
+  margin: auto;
+  padding: 25px 0 25px;
+}

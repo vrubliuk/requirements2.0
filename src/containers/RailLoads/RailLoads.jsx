@@ -1,8 +1,55 @@
 import React from "react";
-import "./RailLoads.css"
+import "./RailLoads.css";
+import Table from "../../components/Table/Table.jsx";
+import { connect } from "react-redux";
 
-const RailLoads = () => {
-  return <div>Rail Loads</div>
-}
+const RailLoads = ({ railLoads1, railLoads2 }) => {
+  const columns1 = [
+    {
+      name: "SCAC",
+      style: {
+        width: "50%",
+        textTransform: "uppercase"
+      }
+    },
+    {
+      name: "carrier",
+      style: {
+        width: "50%"
+      }
+    }
+  ];
+  const columns2 = [
+    {
+      name: "abbreviation",
+      style: {
+        width: "50%",
+        textTransform: "uppercase"
+      }
+    },
+    {
+      name: "equipment type",
+      style: {
+        width: "50%"
+      }
+    }
+  ];
 
-export default RailLoads;
+  return (
+    <div className="RailLoads">
+      <div className="RailLoads__inner">
+        <Table table="railLoads1" data={railLoads1} columns={columns1} />
+        <Table table="railLoads2" data={railLoads2} columns={columns2} />
+      </div>
+    </div>
+  );
+};
+
+const mapStateToProps = state => {
+  return {
+    railLoads1: state.data.railLoads1,
+    railLoads2: state.data.railLoads2
+  };
+};
+
+export default connect(mapStateToProps)(RailLoads);
