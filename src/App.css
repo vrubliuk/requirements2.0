@@ -1,16 +1,16 @@
 .App .Navigation {
   position: fixed;
   top: 0;
-  left: -150px;
+  left: -140px;
 }
 
 .App .Log {
   position: fixed;
   bottom: 25px;
-  left: -150px;
+  left: -140px;
 }
 .App .Log:hover {
-  transform: translate(150px)
+  transform: translate(140px)
 }
 
 .App .Add {
