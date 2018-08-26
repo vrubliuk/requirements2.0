@@ -1,0 +1,20 @@
+.TableRow {
+  font-size: 1.1rem;
+}
+
+.TableRow > * {
+  border: 1px solid #ddd;
+}
+
+.TableRow th {
+  text-transform: uppercase;
+  padding: 10px;
+  text-align: center;
+
+}
+
+.TableRow td {
+  padding: 5px;
+
+}
+

@@ -1,0 +1,8 @@
+.Table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.Table > *:nth-child(2n+1) {
+  background-color: #f1f1f1;
+}

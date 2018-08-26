@@ -1,0 +1,14 @@
+.Requirements {
+  padding: 0 100px;
+}
+
+.Requirements__inner {
+  max-width: 1250px;
+  /* border: 1px solid red;  */
+  margin: auto;
+  padding: 100px 0 25px;
+}
+
+/* .Requirements .Table{
+  margin: 100px auto 25px;
+} */
