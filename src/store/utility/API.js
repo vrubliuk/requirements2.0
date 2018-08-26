@@ -24,11 +24,38 @@ export const getRailLoads2 = () => {
   return axios.get("https://requirements-c506c.firebaseio.com/railLoads2.json")
 }
 
-export const postRequirement = (token, сustomer, documentation, releaseSheetLink, releaseSheetAE) => {
-  return axios.post(`https://requirements-c506c.firebaseio.com/requirements.json?auth=${token}`, {
-    сustomer,
-    documentation,
-    releaseSheetLink,
-    releaseSheetAE
-  });
+// export const postRequirement = (token, сustomer, documentation, releaseSheetLink, releaseSheetAE) => {
+//   return axios.post(`https://requirements-c506c.firebaseio.com/requirements.json?auth=${token}`, {
+//     сustomer,
+//     documentation,
+//     releaseSheetLink,
+//     releaseSheetAE
+//   });
+// };
+
+// export const postOffices = (token, office, abbreviation, leader, GSM) => {
+//   return axios.post(`https://requirements-c506c.firebaseio.com/offices.json?auth=${token}`, {
+//     office,
+//     abbreviation,
+//     leader,
+//     GSM
+//   });
+// };
+
+// export const postRailLoads1 = (token, SCAC, carrier) => {
+//   return axios.post(`https://requirements-c506c.firebaseio.com/railLoads1.json?auth=${token}`, {
+//     SCAC,
+//     carrier
+//   });
+// };
+
+// export const postRailLoads2 = (token, equipmentType, abbreviation) => {
+//   return axios.post(`https://requirements-c506c.firebaseio.com/railLoads2.json?auth=${token}`, {
+//     equipmentType,
+//     abbreviation
+//   });
+// };
+
+export const postRow = (table, token, payload) => {
+  return axios.post(`https://requirements-c506c.firebaseio.com/${table}.json?auth=${token}`, payload);
 };

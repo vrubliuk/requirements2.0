@@ -3,17 +3,11 @@ import updateState  from "../utility/updateState";
 
 const initialState = {
   requirements: {},
+  offices: {},
+  railLoads1: {},
+  railLoads2: {},
 };
 
-// const setToken = (state, action) => {
-//   return updateState(state, {
-//     token: action.token
-//   });
-// };
-
-// const toggleError = state => {
-//   return updateState(state, { error: !state.error });
-// };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {

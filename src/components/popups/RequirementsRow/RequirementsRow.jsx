@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./RequirementsRow.css"
+import "./RequirementsRow.css";
 import colors from "../../../assets/colors";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
@@ -20,8 +20,12 @@ class AddOrEditRequirement extends Component {
   handleSubmit = e => {
     if (!e.target.checkValidity()) return;
     e.preventDefault();
-    this.props.addRequirement(this.state.сustomer, this.state.documentation, this.state.releaseSheetLink, this.state.releaseSheetAE);
-
+    this.props.addRow("requirements", {
+      сustomer: this.state.сustomer,
+      documentation: this.state.documentation,
+      releaseSheetLink: this.state.releaseSheetLink,
+      releaseSheetAE: this.state.releaseSheetAE
+    });
   };
 
   render() {
@@ -51,7 +55,7 @@ class AddOrEditRequirement extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addRequirement: (сustomer, documentation, releaseSheetLink, releaseSheetAE) => dispatch(actionCreators.addRequirement(сustomer, documentation, releaseSheetLink, releaseSheetAE))
+    addRow: (table, payload) => dispatch(actionCreators.addRow(table, payload))
   };
 };
 

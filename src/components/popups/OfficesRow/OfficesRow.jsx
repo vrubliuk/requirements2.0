@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./OfficesRow.css"
+import "./OfficesRow.css";
 import colors from "../../../assets/colors";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
@@ -20,8 +20,12 @@ class OfficesRow extends Component {
   handleSubmit = e => {
     if (!e.target.checkValidity()) return;
     e.preventDefault();
-     // this.props.logIn(this.state.email, this.state.password);
-
+    this.props.addRow("offices", {
+      office: this.state.office,
+      abbreviation: this.state.abbreviation,
+      leader: this.state.leader,
+      GSM: this.state.GSM
+    });
   };
 
   render() {
@@ -40,7 +44,7 @@ class OfficesRow extends Component {
           <input className="Modal__input" type="text" required value={this.state.GSM} onChange={e => this.handleInput(e, "GSM")} />
           <div className="Modal__footer">
             <button className="Modal__button" style={{ background: color }} type="submit">
-              Save
+              Add
             </button>
           </div>
         </form>
@@ -51,7 +55,7 @@ class OfficesRow extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    showInModal: component => dispatch(actionCreators.showInModal(component))
+    addRow: (table, payload) => dispatch(actionCreators.addRow(table, payload))
   };
 };
 

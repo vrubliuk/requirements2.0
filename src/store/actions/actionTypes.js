@@ -7,6 +7,6 @@ export const LOG_OUT = "LOG_OUT"
 export const SHOW_IN_MODAL = "SHOW_IN_MODAL"
 export const SET_SPINNER = "SET_SPINNER"
 
-export const ADD_REQUIREMENT = "ADD_REQUIREMENT"
+export const ADD_ROW = "ADD_ROW"
 
 export const UPDATE_DATABASE = "UPDATE_DATABASE"

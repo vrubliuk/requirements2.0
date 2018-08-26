@@ -9,18 +9,14 @@ import { Provider } from "react-redux";
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import createSagaMiddleware from "redux-saga";
 import auth from "./store/reducers/auth";
-import requirements from "./store/reducers/requirements";
-import offices from "./store/reducers/offices";
-import railLoads from "./store/reducers/railLoads";
+import data from "./store/reducers/data";
 import temp from "./store/reducers/temp"
 import {watchGlobal, watchAuth, watchRequirements} from "./store/sagas"
 
 
 const rootReducer = combineReducers({
   auth,
-  requirements,
-  offices,
-  railLoads,
+  data,
   temp
 });
 
