@@ -1,7 +1,7 @@
 import * as actionTypes from "./actionTypes";
 
-export const updateDatabase = () => {
+export const updateData = () => {
   return {
-    type: actionTypes.UPDATE_DATABASE,
+    type: actionTypes.UPDATE_DATA,
   };
 };

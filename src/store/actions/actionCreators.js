@@ -1,5 +1,5 @@
-export {updateDatabase} from "./global"
+export {updateData} from "./global"
 export {setToken, updateTokens, logIn, logOut} from "./auth"
-export {addRow} from "./data"
+export {setData, addRow} from "./data"
 
 export {setSpinner, showInModal, toggleError} from "./temp"

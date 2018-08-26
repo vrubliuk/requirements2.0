@@ -8,13 +8,14 @@ const initialState = {
   railLoads2: {},
 };
 
+const setData = (state, action) => {
+  return updateState(state, { [action.table]: action.payload });
+}
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    // case actionTypes.SET_TOKEN:
-    //   return setToken(state, action);
-    // case actionTypes.TOGGLE_ERROR:
-    //   return toggleError(state);
+    case actionTypes.SET_DATA:
+      return setData(state, action);
     default:
       return state;
   }

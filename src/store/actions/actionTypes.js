@@ -9,4 +9,5 @@ export const SET_SPINNER = "SET_SPINNER"
 
 export const ADD_ROW = "ADD_ROW"
 
-export const UPDATE_DATABASE = "UPDATE_DATABASE"
+export const UPDATE_DATA = "UPDATE_DATA"
+export const SET_DATA = "SET_DATA"

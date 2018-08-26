@@ -1,34 +1,30 @@
 import { delay } from "redux-saga";
-import { put, select  } from "redux-saga/effects";
+import { put, select } from "redux-saga/effects";
 import * as actionCreators from "../actions/actionCreators";
 import * as API from "../utility/API";
-import {updateTokens} from "./auth"
-
+import { updateTokens } from "./auth";
 
 export function* fetchDatabase() {
   try {
-    const res = yield Promise.all([API.getRequirements(), API.getOffices(), API.getRailLoads1(), API.getRailLoads2()]);
-    yield console.log(res);
-    // yield (localStorage.refreshToken = res.data.refreshToken);
-    // yield put(actionCreators.setToken(res.data.idToken));
-    // yield put(actionCreators.showInModal(null));
+    const res = yield Promise.all([API.getData("requirements"), API.getData("offices"), API.getData("railLoads1"), API.getData("railLoads2")]);
+    yield put(actionCreators.setData("requirements", res[0].data));
+    yield put(actionCreators.setData("offices", res[1].data));
+    yield put(actionCreators.setData("railLoads1", res[2].data));
+    yield put(actionCreators.setData("railLoads2", res[3].data));
   } catch (err) {
-    // yield put(actionCreators.toggleError());
-    // yield delay(2000);
-    // yield put(actionCreators.toggleError());
+    yield alert("Wasn't able to fetch the database");
   }
 }
 
-export function* updateDatabase() {
+export function* updateData() {
   if (localStorage.refreshTokenRequirements) {
-    yield updateTokens()
-    yield fetchDatabase()
+    yield updateTokens();
+    yield fetchDatabase();
     // yield delay(1500) UNCOMMENT LATER
-    yield put(actionCreators.setSpinner(false))
-
+    yield put(actionCreators.setSpinner(false));
   } else {
-    yield fetchDatabase()
+    yield fetchDatabase();
     // yield delay(1500) UNCOMMENT LATER
-    yield put(actionCreators.setSpinner(false))
+    yield put(actionCreators.setSpinner(false));
   }
 }

@@ -2,9 +2,7 @@ import { takeEvery } from "redux-saga/effects";
 import * as actionTypes from "../actions/actionTypes"
 import { logIn, logOut, updateTokens } from "./auth";
 import { addRow } from "./data";
-import { updateDatabase} from "./global";
-
-
+import { updateData} from "./global";
 
 export function* watchAuth() {
   yield takeEvery(actionTypes.LOG_IN, logIn);
@@ -17,7 +15,7 @@ export function* watchRequirements() {
 }
 
 export function* watchGlobal() {
-  yield takeEvery(actionTypes.UPDATE_DATABASE, updateDatabase);
+  yield takeEvery(actionTypes.UPDATE_DATA, updateData);
 }
 
 

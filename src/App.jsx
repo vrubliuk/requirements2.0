@@ -15,7 +15,7 @@ import Add from "./components/buttons/Add/Add.jsx"
 class App extends Component {
 
   componentDidMount() {
-    this.props.updateDatabase();
+    this.props.updateData();
     this.interval = setInterval(() => this.props.updateTokens(), 1800000)
   }
 
@@ -56,7 +56,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateDatabase: () => dispatch(actionCreators.updateDatabase()),
+    updateData: () => dispatch(actionCreators.updateData()),
     updateTokens: () => dispatch(actionCreators.updateTokens())
   };
 };
