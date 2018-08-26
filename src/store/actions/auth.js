@@ -7,11 +7,12 @@ export const setToken = token => {
   }
 }
 
-export const toggleError = () => {
+export const updateTokens = () => {
   return {
-    type: actionTypes.TOGGLE_ERROR
-  };
-};
+    type: actionTypes.UPDATE_TOKENS,
+  }
+}
+
 
 export const logIn = (email, password) => {
   return {

@@ -5,7 +5,7 @@ export const postEmailPassword = (email, password) => {
 };
 
 export const postRefreshToken = () => {
-  return axios.post("https://securetoken.googleapis.com/v1/token?key=AIzaSyAEyDsrBHsnHoEItk9PgshoujhrTk0ZlAA", { grant_type: "refresh_token", refresh_token: localStorage.refreshToken });
+  return axios.post("https://securetoken.googleapis.com/v1/token?key=AIzaSyAEyDsrBHsnHoEItk9PgshoujhrTk0ZlAA", { grant_type: "refresh_token", refresh_token: localStorage.refreshTokenRequirements });
 };
 
 export const getRequirements = () => {

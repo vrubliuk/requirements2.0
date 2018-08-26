@@ -49,7 +49,7 @@ class Auth extends Component {
 
 const mapStateToProps = state => {
   return {
-    error: state.auth.error
+    error: state.temp.error
   };
 };
 

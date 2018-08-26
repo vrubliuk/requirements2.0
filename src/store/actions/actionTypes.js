@@ -1,4 +1,5 @@
 export const SET_TOKEN = "SET_TOKEN"
+export const UPDATE_TOKENS = "UPDATE_TOKENS"
 export const TOGGLE_ERROR = "TOGGLE_ERROR"
 export const LOG_IN = "LOG_IN"
 export const LOG_OUT = "LOG_OUT"
@@ -8,4 +9,4 @@ export const SET_SPINNER = "SET_SPINNER"
 
 export const ADD_REQUIREMENT = "ADD_REQUIREMENT"
 
-export const FETCH_DATABASE = "FETCH_DATABASE"
+export const UPDATE_DATABASE = "UPDATE_DATABASE"

@@ -15,9 +15,13 @@ import Add from "./components/buttons/Add/Add.jsx"
 class App extends Component {
 
   componentDidMount() {
-    this.props.fetchDatabase()
+    this.props.updateDatabase();
+    this.interval = setInterval(() => this.props.updateTokens(), 1800000)
   }
 
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
 
   render() {
     return (
@@ -52,7 +56,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchDatabase: () => dispatch(actionCreators.fetchDatabase())
+    updateDatabase: () => dispatch(actionCreators.updateDatabase()),
+    updateTokens: () => dispatch(actionCreators.updateTokens())
   };
 };
 

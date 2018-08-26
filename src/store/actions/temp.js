@@ -13,3 +13,9 @@ export const showInModal = (component) => {
     component
   }
 }
+
+export const toggleError = () => {
+  return {
+    type: actionTypes.TOGGLE_ERROR
+  };
+};

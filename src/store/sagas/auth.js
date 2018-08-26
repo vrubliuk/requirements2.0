@@ -6,7 +6,7 @@ import * as API from "../utility/API";
 export function* logIn(action) {
   try {
     const res = yield API.postEmailPassword(action.email, action.password);
-    yield (localStorage.refreshToken = res.data.refreshToken);
+    yield (localStorage.refreshTokenRequirements = res.data.refreshToken);
     yield put(actionCreators.setToken(res.data.idToken));
     yield put(actionCreators.showInModal(null));
   } catch (err) {
@@ -17,6 +17,18 @@ export function* logIn(action) {
 }
 
 export function* logOut() {
-  yield localStorage.removeItem("refreshToken");
+  yield localStorage.removeItem("refreshTokenRequirements");
   yield put(actionCreators.setToken(null));
+}
+
+export function* updateTokens() {
+  if (localStorage.refreshTokenRequirements) {
+    try {
+      const res = yield API.postRefreshToken();
+      yield (localStorage.refreshTokenRequirements = res.data.refresh_token);
+      yield put(actionCreators.setToken(res.data.id_token));
+    } catch (err) {
+      yield alert("Wasn't able to update tokens")
+    }
+  }
 }

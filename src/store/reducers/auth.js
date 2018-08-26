@@ -3,7 +3,6 @@ import updateState  from "../utility/updateState";
 
 const initialState = {
   token: null,
-  error: false
 };
 
 const setToken = (state, action) => {
@@ -12,16 +11,12 @@ const setToken = (state, action) => {
   });
 };
 
-const toggleError = state => {
-  return updateState(state, { error: !state.error });
-};
+
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SET_TOKEN:
       return setToken(state, action);
-    case actionTypes.TOGGLE_ERROR:
-      return toggleError(state);
     default:
       return state;
   }
