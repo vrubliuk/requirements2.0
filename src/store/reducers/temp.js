@@ -4,7 +4,8 @@ import updateState from "../utility/updateState";
 const initialState = {
   spinner: true,
   modal: null,
-  error: false
+  error: false,
+  filter: null
 };
 const setSpinner = (state, action) => {
   return updateState(state, { spinner: action.value });

@@ -8,8 +8,12 @@ const Table = ({table, data, columns }) => {
 
   const rowsBody = Object.keys(data).map(key => <TableRow table={table} key={key} row={data[key]} columns={columns}/>)
   return <table className="Table">
+    <thead>
     <TableRow row="heading" columns={columns}/>
+    </thead>
+    <tbody>
     {rowsBody}
+    </tbody>
   </table>  
 }
 

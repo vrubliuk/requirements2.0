@@ -3,6 +3,10 @@
   border-collapse: collapse;
 }
 
-.Table > *:nth-child(2n+1) {
+.Table thead tr  {
   background-color: #f1f1f1;
 }
+.Table tbody tr:nth-child(2n)  {
+  background-color: #f1f1f1;
+}
+
