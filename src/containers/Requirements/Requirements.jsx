@@ -1,11 +1,15 @@
-import React from "react";
+import React, {Component} from "react";
 import "./Requirements.css";
 import Table from "../../components/Table/Table.jsx";
 import Filter from "../../components/Filter/Filter.jsx"
 import { connect } from "react-redux";
 
-const Requirements = ({ requirements }) => {
-  const columns = [
+class Requirements extends Component {
+  state ={
+    innerWidth: null
+  }
+
+  columns = [
     {
       name: "сustomer",
       style: {
@@ -21,14 +25,34 @@ const Requirements = ({ requirements }) => {
     }
   ];
 
-  return (
-    <div className="Requirements">
-      <div className="Requirements__inner">
-        <Filter/>
-        <Table table="requirements" data={requirements} columns={columns} />
+  inner = React.createRef();
+
+  setWidth = () => {
+    this.setState({
+      innerWidth: this.inner.current.offsetWidth
+    })
+  }
+
+  componentDidMount() {
+    this.setWidth();
+    window.addEventListener('resize', this.setWidth)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.setWidth);
+  }
+
+  render() {
+    return (
+      <div className="Requirements">
+        <div className="Requirements__inner" ref={this.inner}>
+          <Filter width={this.state.innerWidth} />
+          <Table table="requirements" data={this.props.requirements} columns={this.columns} />
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+
 };
 
 const mapStateToProps = state => {
