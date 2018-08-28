@@ -50,6 +50,7 @@
   font-size: 1.5rem;
   padding-left: 0;
   color: #d9d9d9;
+  text-transform: uppercase;
 }
 
 .Filter__dropdown {
@@ -65,12 +66,9 @@
   align-items: center;
   color: #d9d9d9;
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 .Filter__dropdown__item:hover {
   color: white;
-}
-
-.Filter__dropdown__item-active {
-  color: #f44336 !important;
 }

@@ -14,16 +14,19 @@ class Filter extends Component {
   render() {
     const byList = ["customer", "documentation"].map(byItem => {
       return (
-        <div className={`Filter__dropdown__item ${this.state.by === byItem ? "Filter__dropdown__item-active" : ""}`} onClick={() => this.setState({ by: byItem })}>
-          By {byItem}
+        <div className="Filter__dropdown__item" onClick={() => this.setState({ by: byItem })}>
+          <div className="Filter__icon">
+            <i className={`fa fa${this.state.by === byItem ? "-check" : ""}-circle`} aria-hidden="true" />
+          </div>
+          <div>By {byItem}</div>
         </div>
       );
     });
 
     return (
-      <div className="Filter" style={{width: this.props.width}}>
+      <div className="Filter" style={{ width: this.props.width }}>
         <div className="Filter__part">
-          <div className="Filter__icon Filter__icon-caret" onClick={() =>  this.setState({showByList: !this.state.showByList})}>
+          <div className="Filter__icon Filter__icon-caret" onClick={() => this.setState({ showByList: !this.state.showByList })}>
             <i className={`fa fa-caret-${this.state.showByList ? "up" : "down"}`} aria-hidden="true" />
           </div>
           <div className="Filter__icon Filter__icon-search">
