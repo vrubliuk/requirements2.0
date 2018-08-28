@@ -10,9 +10,8 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import createSagaMiddleware from "redux-saga";
 import auth from "./store/reducers/auth";
 import data from "./store/reducers/data";
-import temp from "./store/reducers/temp"
-import {watchGlobal, watchAuth, watchRequirements} from "./store/sagas"
-
+import temp from "./store/reducers/temp";
+import { watchGlobal, watchAuth, watchRequirements } from "./store/sagas";
 
 const rootReducer = combineReducers({
   auth,
@@ -22,15 +21,17 @@ const rootReducer = combineReducers({
 
 const sagaMiddleware = createSagaMiddleware();
 
-const composeEnhancers =
-  process.env.NODE_ENV === "development"
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    : null || compose;
+// const composeEnhancers =
+//   process.env.NODE_ENV === "development"
+//     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+//     : null || compose;
 
-const store = createStore(
-  rootReducer,
-  composeEnhancers(applyMiddleware(sagaMiddleware))
-);
+
+//FOR IE------------
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+//----------------------
+
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(sagaMiddleware)));
 
 sagaMiddleware.run(watchGlobal);
 sagaMiddleware.run(watchAuth);

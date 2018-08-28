@@ -53,5 +53,6 @@ textarea {
   border: none;
   padding: 10px;
   background-color: white;
+  overflow-y: auto;
 
 }

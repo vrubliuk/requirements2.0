@@ -8,8 +8,9 @@ class Filter extends Component {
     by: "customer",
     showByList: false
   };
-
-  letters = ["0-9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  handleClickLetter = letter => {
+    letter === this.state.letter ? this.setState({ letter: null }) : this.setState({ letter: letter });
+  };
 
   render() {
     const byList = ["customer", "documentation"].map(byItem => {
@@ -19,6 +20,14 @@ class Filter extends Component {
             <i className={`fa fa${this.state.by === byItem ? "-check" : ""}-circle`} aria-hidden="true" />
           </div>
           <div>By {byItem}</div>
+        </div>
+      );
+    });
+
+    const letters = ["0-9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"].map((letter, i) => {
+      return (
+        <div className={`Filter__letter ${this.state.letter === letter ? "Filter__letter-active" : ""}`} onClick={this.handleClickLetter.bind(this, letter)} key={i}>
+          {letter}
         </div>
       );
     });
@@ -35,7 +44,9 @@ class Filter extends Component {
           <input className="Filter__input" type="text" />
           {this.state.showByList && <div className="Filter__dropdown">{byList}</div>}
         </div>
-        <div className="Filter__part">A-Z</div>
+        <div className="Filter__part">
+          <div className="Filter__letters">{letters}</div>
+        </div>
       </div>
     );
   }

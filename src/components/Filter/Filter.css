@@ -2,12 +2,12 @@
   background: #333333;
   display: flex;
   transition: 0.1s;
+  font-size: 1.5rem;
+  color: #d9d9d9;
+  text-transform: uppercase;
 }
 
-.Filter i {
-  font-size: 20px;
-  color: #d9d9d9;
-}
+
 
 .Filter__part:nth-child(1) {
   flex: 0 0 30%;
@@ -18,6 +18,7 @@
 
 .Filter__part {
   display: flex;
+  align-items: center;
   position: relative;
 }
 
@@ -28,6 +29,7 @@
   align-items: center;
   justify-content: center;
 }
+
 
 .Filter__icon-caret:hover {
   color: white;
@@ -40,6 +42,10 @@
 
 .Filter__icon-search {
   background: #4b4f53;
+}
+
+.Filter__icon i{
+  font-size: 1.3rem;
 }
 
 .Filter__input {
@@ -63,11 +69,27 @@
   height: 50px;
   display: flex;
   align-items: center;
-  color: #d9d9d9;
   cursor: pointer;
-  text-transform: uppercase;
 }
 
 .Filter__dropdown__item:hover, .Filter__dropdown__item:hover i {
   color: white;
+}
+
+.Filter__letters {
+  width: 100%;
+  display: flex;
+  justify-content: space-between; 
+  padding: 0 15px;
+  user-select: none;
+}
+.Filter__letter {
+  cursor: pointer;
+}
+.Filter__letter:hover {
+  color: white;
+}
+
+.Filter__letter-active {
+  color: rgb(244,67,54) !important;
 }

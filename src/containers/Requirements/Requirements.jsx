@@ -56,7 +56,7 @@ class Requirements extends Component {
     return (
       <div className="Requirements">
         <div className="Requirements__inner" ref={this.innerContainer}>
-          <div className="cover" style={{ width: this.state.innerContainerWidth }} />
+          <div className="cover" style={{ width: this.state.filterWidth }} />
           <Filter width={this.state.filterWidth} top={this.state.filterTop} />
           <Table table="requirements" data={this.props.requirements} columns={columns} />
         </div>
