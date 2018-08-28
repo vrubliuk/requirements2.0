@@ -24,7 +24,7 @@ class Filter extends Component {
     });
 
     return (
-      <div className="Filter" style={{ width: this.props.width }}>
+      <div className="Filter" style={{ width: this.props.width, top: this.props.top }}>
         <div className="Filter__part">
           <div className="Filter__icon Filter__icon-caret" onClick={() => this.setState({ showByList: !this.state.showByList })}>
             <i className={`fa fa-caret-${this.state.showByList ? "up" : "down"}`} aria-hidden="true" />

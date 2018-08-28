@@ -1,8 +1,7 @@
 .Filter {
-  position: fixed;
-  top: 25px;
   background: #333333;
   display: flex;
+  transition: 0.1s;
 }
 
 .Filter i {
@@ -69,6 +68,6 @@
   text-transform: uppercase;
 }
 
-.Filter__dropdown__item:hover {
+.Filter__dropdown__item:hover, .Filter__dropdown__item:hover i {
   color: white;
 }
