@@ -1,0 +1,14 @@
+.Up {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.Up i {
+  color: white;
+  font-size: 1rem;
+  margin-top: -4px;
+}

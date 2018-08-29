@@ -6,12 +6,14 @@
   position: fixed;
   top: 0;
   left: -140px;
+  z-index: 2;
 }
 
 .App .Log {
   position: fixed;
   bottom: 25px;
   left: -140px;
+  z-index: 2;
 }
 .App .Log:hover {
   transform: translate(140px)
@@ -21,4 +23,12 @@
   position: fixed;
   top: 25px;
   right: 25px;
+  z-index: 2;
+}
+
+.App .Up {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 2;
 }
