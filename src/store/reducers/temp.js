@@ -7,6 +7,7 @@ const initialState = {
   error: false,
   filter: null
 };
+
 const setSpinner = (state, action) => {
   return updateState(state, { spinner: action.value });
 };
@@ -19,14 +20,20 @@ const toggleError = state => {
   return updateState(state, { error: !state.error });
 };
 
+const setFilter = (state, action) => {
+  return updateState(state, { filter: action.payload });
+};
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SET_SPINNER:
       return setSpinner(state, action);
     case actionTypes.SHOW_IN_MODAL:
       return showInModal(state, action);
-      case actionTypes.TOGGLE_ERROR:
+    case actionTypes.TOGGLE_ERROR:
       return toggleError(state);
+    case actionTypes.SET_FILTER:
+      return setFilter(state, action);
     default:
       return state;
   }

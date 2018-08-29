@@ -1,25 +1,89 @@
 import React, { Component } from "react";
 import "./Filter.css";
+import { connect } from "react-redux";
+import * as actionCreators from "../../store/actions/actionCreators";
 
 class Filter extends Component {
   state = {
     letter: null,
     word: "",
     by: "customer",
-    showByList: false
+    showByList: false,
+    additionalInputStyle: null
   };
+  setFilterAs = type => {
+    this.props.setFilter({
+      type,
+      value: type === "word" ? this.state.word : this.state.letter,
+      by: this.state.by
+    });
+  };
+  updateFilterBy = () => {
+    this.props.filter !== null &&
+      this.props.setFilter({
+        type: this.props.filter.type,
+        value: this.props.filter.value,
+        by: this.state.by
+      });
+  };
+  clearFilter = () => {
+    this.props.setFilter(null);
+  };
+
+  toggleInputWidth = () => {
+    this.state.word ? this.setState({ additionalInputStyle: { width: this.props.width } }) : this.setState({ additionalInputStyle: null });
+  };
+
+  handleClickCaret = () => {
+    this.setState(prevState => {
+      return {
+        showByList: !prevState.showByList
+      };
+    });
+  };
+
+  handleClickBy = by => {
+    this.setState({ by }, () => {
+      this.updateFilterBy();
+    });
+  };
+
+  handleInputFocus = () => {
+    this.setState(
+      {
+        letter: null
+      },
+      () => {
+        this.state.word ? this.setFilterAs("word") : this.clearFilter();
+      }
+    );
+  };
+
+  handleInputChange = e => {
+    this.setState({ word: e.target.value }, () => {
+      this.state.word ? this.setFilterAs("word") : this.clearFilter();
+      this.toggleInputWidth();
+    });
+  };
+
   handleClickLetter = letter => {
-    letter === this.state.letter ? this.setState({ letter: null }) : this.setState({ letter: letter });
+    letter === this.state.letter
+      ? this.setState({ letter: null, word: "" }, () => {
+          this.clearFilter();
+        })
+      : this.setState({ letter: letter, word: "" }, () => {
+          this.setFilterAs("letter");
+        });
   };
 
   render() {
-    const byList = ["customer", "documentation"].map(byItem => {
+    const byList = ["customer", "documentation"].map((by, i) => {
       return (
-        <div className="Filter__dropdown__item" onClick={() => this.setState({ by: byItem })}>
+        <div className="Filter__dropdown__item" onClick={this.handleClickBy.bind(this, by)} key={i}>
           <div className="Filter__icon">
-            <i className={`fa fa${this.state.by === byItem ? "-check" : ""}-circle`} aria-hidden="true" />
+            <i className={`fa fa${this.state.by === by ? "-check" : ""}-circle`} aria-hidden="true" />
           </div>
-          <div>By {byItem}</div>
+          <div>By {by}</div>
         </div>
       );
     });
@@ -35,13 +99,13 @@ class Filter extends Component {
     return (
       <div className="Filter" style={{ width: this.props.width, top: this.props.top }}>
         <div className="Filter__part">
-          <div className="Filter__icon Filter__icon-caret" onClick={() => this.setState({ showByList: !this.state.showByList })}>
+          <div className="Filter__icon Filter__icon-caret" onClick={this.handleClickCaret}>
             <i className={`fa fa-caret-${this.state.showByList ? "up" : "down"}`} aria-hidden="true" />
           </div>
           <div className="Filter__icon Filter__icon-search">
             <i className="fa fa-search" aria-hidden="true" />
           </div>
-          <input className="Filter__input" type="text" />
+          <input className="Filter__input" style={this.state.additionalInputStyle} type="text" value={this.state.word} onChange={this.handleInputChange} onFocus={this.handleInputFocus} />
           {this.state.showByList && <div className="Filter__dropdown">{byList}</div>}
         </div>
         <div className="Filter__part">
@@ -52,4 +116,19 @@ class Filter extends Component {
   }
 }
 
-export default Filter;
+const mapStateToProps = state => {
+  return {
+    filter: state.temp.filter
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setFilter: payload => dispatch(actionCreators.setFilter(payload))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Filter);

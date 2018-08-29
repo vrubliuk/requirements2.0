@@ -11,6 +11,7 @@
 
 .Filter__part:nth-child(1) {
   flex: 0 0 30%;
+  z-index: 1;
 }
 .Filter__part:nth-child(2) {
   flex: 0 0 70%;
@@ -30,6 +31,13 @@
   justify-content: center;
 }
 
+.Filter__icon-caret {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: #333333;
+}
 
 .Filter__icon-caret:hover {
   color: white;
@@ -42,6 +50,10 @@
 
 .Filter__icon-search {
   background: #4b4f53;
+  position: absolute;
+  top: 0;
+  left: 40px;
+  z-index: 1;
 }
 
 .Filter__icon i{
@@ -49,13 +61,18 @@
 }
 
 .Filter__input {
-  width: calc(100% - 80px);
+  width: 100%;
   background: #4b4f53;
   height: 50px;
   font-size: 1.5rem;
-  padding-left: 0;
+  padding-left: 80px;
   color: #d9d9d9;
   text-transform: uppercase;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: width 0.3s ease-in-out;
+ 
 }
 
 .Filter__dropdown {
@@ -79,9 +96,11 @@
 .Filter__letters {
   width: 100%;
   display: flex;
+  align-items: center;
   justify-content: space-between; 
   padding: 0 15px;
   user-select: none;
+  height: 50px;
 }
 .Filter__letter {
   cursor: pointer;

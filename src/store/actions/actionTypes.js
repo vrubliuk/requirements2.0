@@ -6,6 +6,7 @@ export const LOG_OUT = "LOG_OUT"
 
 export const SHOW_IN_MODAL = "SHOW_IN_MODAL"
 export const SET_SPINNER = "SET_SPINNER"
+export const SET_FILTER = "SET_FILTER"
 
 export const ADD_ROW = "ADD_ROW"
 

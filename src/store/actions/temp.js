@@ -19,3 +19,10 @@ export const toggleError = () => {
     type: actionTypes.TOGGLE_ERROR
   };
 };
+
+export const setFilter = (payload) => {
+  return {
+    type: actionTypes.SET_FILTER,
+    payload
+  }
+}
