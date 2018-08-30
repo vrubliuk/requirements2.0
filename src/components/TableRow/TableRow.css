@@ -15,6 +15,15 @@
 
 .TableRow td {
   padding: 5px;
-
 }
 
+.TableRow td > div{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.TableRow .RS {
+  flex-shrink: 0;
+  margin-left: 5px;
+}
