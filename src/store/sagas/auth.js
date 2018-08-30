@@ -8,7 +8,7 @@ export function* logIn(action) {
     const res = yield API.postEmailPassword(action.email, action.password);
     yield (localStorage.refreshTokenRequirements = res.data.refreshToken);
     yield put(actionCreators.setToken(res.data.idToken));
-    yield put(actionCreators.showInModal(null));
+    yield put(actionCreators.closeModal());
   } catch (err) {
     yield put(actionCreators.toggleError());
     yield delay(2000);

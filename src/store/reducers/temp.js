@@ -13,7 +13,13 @@ const setSpinner = (state, action) => {
 };
 
 const showInModal = (state, action) => {
-  return updateState(state, { modal: action.component });
+  return updateState(state, { modal: {component: action.component,
+    data: action.data
+  }});
+};
+
+const closeModal = (state) => {
+  return updateState(state, { modal: null });
 };
 
 const toggleError = state => {
@@ -30,6 +36,8 @@ const reducer = (state = initialState, action) => {
       return setSpinner(state, action);
     case actionTypes.SHOW_IN_MODAL:
       return showInModal(state, action);
+    case actionTypes.CLOSE_MODAL:
+      return closeModal(state)
     case actionTypes.TOGGLE_ERROR:
       return toggleError(state);
     case actionTypes.SET_FILTER:

@@ -7,10 +7,18 @@ export const setSpinner = (value) => {
   }
 }
 
-export const showInModal = (component) => {
+export const showInModal = (component, data) => {
   return {
     type: actionTypes.SHOW_IN_MODAL,
-    component
+    component,
+    data
+  }
+}
+
+export const closeModal = () => {
+  return {
+    type: actionTypes.CLOSE_MODAL,
+    
   }
 }
 
