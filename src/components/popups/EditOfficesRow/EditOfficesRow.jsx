@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import "./OfficesRow.css";
+import "./EditOfficesRow.css";
 import colors from "../../../assets/colors";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import * as actionCreators from "../../../store/actions/actionCreators";
 
-class OfficesRow extends Component {
+class EditOfficesRow extends Component {
   state = {
     office: "",
     abbreviation: "",
@@ -31,7 +31,7 @@ class OfficesRow extends Component {
   render() {
     const color = colors[this.props.location.pathname].dark;
     return (
-      <div className="OfficesRow">
+      <div className="EditOfficesRow">
         <div className="Modal__title">Add new office</div>
         <form className="Modal__form" onSubmit={this.handleSubmit}>
           <div className="Modal__label">Office</div>
@@ -63,5 +63,5 @@ export default withRouter(
   connect(
     null,
     mapDispatchToProps
-  )(OfficesRow)
+  )(EditOfficesRow)
 );

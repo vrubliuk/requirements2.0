@@ -3,17 +3,17 @@ import "./Modal.css";
 import { connect } from "react-redux";
 import Close from "../../components/buttons/Close/Close.jsx"
 import Auth from "../../components/popups/Auth/Auth.jsx"
-import RequirementsRow from "../../components/popups/RequirementsRow/RequirementsRow.jsx"
-import OfficesRow from "../../components/popups/OfficesRow/OfficesRow.jsx"
-import RailLoadsRow from "../../components/popups/RailLoadsRow/RailLoadsRow.jsx"
+import AddRequirementsRow from "../../components/popups/AddRequirementsRow/AddRequirementsRow.jsx"
+import AddOfficesRow from "../../components/popups/AddOfficesRow/AddOfficesRow.jsx"
+import AddRailLoadsRow from "../../components/popups/AddRailLoadsRow/AddRailLoadsRow.jsx"
 import RSInfo from "../../components/popups/RSInfo/RSInfo.jsx"
 
 const Modal = ({modal}) => {
   const popups = {
     Auth: <Auth/>,
-    RequirementsRow: <RequirementsRow/>,
-    OfficesRow: <OfficesRow/>,
-    RailLoadsRow: <RailLoadsRow/>,
+    AddRequirementsRow: <AddRequirementsRow/>,
+    AddOfficesRow: <AddOfficesRow/>,
+    AddRailLoadsRow: <AddRailLoadsRow/>,
     RSInfo: <RSInfo data={modal.data}/>
   }
 

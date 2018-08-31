@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import "./RailLoadsRow.css";
+import "./AddRailLoadsRow.css";
 import colors from "../../../assets/colors";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import * as actionCreators from "../../../store/actions/actionCreators";
 
-class RailLoadsRow extends Component {
+class AddRailLoadsRow extends Component {
   state = {
     currentTable: 1,
     SCAC: "",
@@ -66,7 +66,7 @@ class RailLoadsRow extends Component {
     };
 
     return (
-      <div className="RailLoadsRow">
+      <div className="AddRailLoadsRow">
         <div className="Modal__title">Add new rail loads information</div>
         <div className="Modal__header">
           <div className="Modal__switch" style={{ borderBottom: this.state.currentTable === 1 && `2px solid ${color}` }} onClick={() => this.setState({ currentTable: 1 })}>
@@ -92,5 +92,5 @@ export default withRouter(
   connect(
     null,
     mapDispatchToProps
-  )(RailLoadsRow)
+  )(AddRailLoadsRow)
 );

@@ -9,9 +9,9 @@ const Add = ({location, showInModal}) => {
 
   const color = colors[location.pathname].dark;
   const popups = {
-    "/": "RequirementsRow",
-    "/offices": "OfficesRow",
-    "/rail-loads": "RailLoadsRow",
+    "/": "AddRequirementsRow",
+    "/offices": "AddOfficesRow",
+    "/rail-loads": "AddRailLoadsRow",
   }
 
   const handleClick = () => {

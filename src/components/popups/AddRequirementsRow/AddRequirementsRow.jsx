@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import "./RequirementsRow.css";
+import "./AddRequirementsRow.css";
 import colors from "../../../assets/colors";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import * as actionCreators from "../../../store/actions/actionCreators";
 
-class RequirementsRow extends Component {
+class AddRequirementsRow extends Component {
   state = {
     сustomer: "",
     documentation: "",
@@ -31,7 +31,7 @@ class RequirementsRow extends Component {
   render() {
     const color = colors[this.props.location.pathname].dark;
     return (
-      <div className="RequirementsRow">
+      <div className="AddRequirementsRow">
         <div className="Modal__title">Add new requirement</div>
         <form className="Modal__form" onSubmit={this.handleSubmit}>
           <div className="Modal__label">Customer</div>
@@ -63,5 +63,5 @@ export default withRouter(
   connect(
     null,
     mapDispatchToProps
-  )(RequirementsRow)
+  )(AddRequirementsRow)
 );

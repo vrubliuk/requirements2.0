@@ -2,6 +2,8 @@ import React from "react";
 import "./TableRow.css";
 import colors from "../../assets/colors";
 import { withRouter } from "react-router-dom";
+import {connect} from "react-redux";
+import * as actionCreators from "../../store/actions/actionCreators"
 import Radium from "radium";
 import RS from "../buttons/RS/RS.jsx";
 
@@ -47,11 +49,23 @@ const TableRow = ({ table, id, row, columns, location }) => {
     };
   }
 
+  const handleDoubleClick = () => {
+    alert('a')
+    
+  }
+
   return (
-    <tr className="TableRow" style={style}>
+    <tr className="TableRow" style={style} onDoubleClick={handleDoubleClick}>
       {rowColumns}
     </tr>
   );
 };
 
-export default withRouter(Radium(TableRow));
+
+const mapDispatchToProps = dispatch => {
+  return {
+    showInModal: (component, data) => dispatch(actionCreators.showInModal(component, data))
+  }
+}
+
+export default withRouter(  connect(null, mapDispatchToProps)(Radium(TableRow))   );
