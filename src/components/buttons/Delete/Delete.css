@@ -1,0 +1,15 @@
+.Delete {
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.Delete i{
+  font-size: 1rem;
+}
