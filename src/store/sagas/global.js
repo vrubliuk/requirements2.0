@@ -12,7 +12,7 @@ export function* fetchDatabase() {
     yield put(actionCreators.setData("railLoads1", res[2].data));
     yield put(actionCreators.setData("railLoads2", res[3].data));
   } catch (err) {
-    yield alert("Wasn't able to fetch the database");
+    yield alert("Not able to fetch the database");
   }
 }
 

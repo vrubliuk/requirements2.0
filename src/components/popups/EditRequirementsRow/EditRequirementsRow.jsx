@@ -28,12 +28,12 @@ class EditRequirementsRow extends Component {
   handleSubmit = e => {
     if (!e.target.checkValidity()) return;
     e.preventDefault();
-    // this.props.initAddRow("requirements", {
-    //   сustomer: this.state.сustomer,
-    //   documentation: this.state.documentation,
-    //   releaseSheetLink: this.state.releaseSheetLink,
-    //   releaseSheetAE: this.state.releaseSheetAE
-    // });
+    this.props.initUpdateRow("requirements", this.props.data.id, {
+      сustomer: this.state.сustomer,
+      documentation: this.state.documentation,
+      releaseSheetLink: this.state.releaseSheetLink,
+      releaseSheetAE: this.state.releaseSheetAE
+    });
   };
 
   handleDelete = () => {
@@ -75,7 +75,7 @@ class EditRequirementsRow extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    // initUpdateRow: (table, payload) => dispatch(actionCreators.initUpdateRow(table, payload)),
+    initUpdateRow: (table, id, row) => dispatch(actionCreators.initUpdateRow(table, id, row)),
     initDeleteRow: (table, id) => dispatch(actionCreators.initDeleteRow(table, id))
   };
 };

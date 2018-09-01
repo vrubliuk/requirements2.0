@@ -7,6 +7,22 @@ export const setData = (table, payload) => {
     payload
   }
 }
+export const setRow = (table, id, row) => {
+  return {
+    type: actionTypes.SET_ROW,
+    table,
+    id,
+    row
+  };
+};
+
+export const deleteRow = (table, id) => {
+  return {
+    type: actionTypes.DELETE_ROW,
+    table,
+    id
+  };
+};
 
 export const initAddRow = (table, row) => {
   return {
@@ -16,26 +32,10 @@ export const initAddRow = (table, row) => {
   };
 };
 
-export const addRow = (table, id, row) => {
-  return {
-    type: actionTypes.ADD_ROW,
-    table,
-    id,
-    row
-  };
-};
 
-export const initUpdateRow = (table, payload) => {
+export const initUpdateRow = (table, id, row) => {
   return {
-    type: actionTypes.INIT_ADD_ROW,
-    table,
-    payload
-  };
-};
-
-export const updateRow = (table, id, row) => {
-  return {
-    type: actionTypes.ADD_ROW,
+    type: actionTypes.INIT_UPDATE_ROW,
     table,
     id,
     row
@@ -45,14 +45,6 @@ export const updateRow = (table, id, row) => {
 export const initDeleteRow = (table, id) => {
   return {
     type: actionTypes.INIT_DELETE_ROW,
-    table,
-    id
-  };
-};
-
-export const deleteRow = (table, id) => {
-  return {
-    type: actionTypes.DELETE_ROW,
     table,
     id
   };

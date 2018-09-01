@@ -60,10 +60,14 @@ export const getData = (table) => {
 //   });
 // };
 
-export const postRow = (table, token, row) => {
+export const postRow = (token, table, row) => {
   return axios.post(`https://requirements-c506c.firebaseio.com/${table}.json?auth=${token}`, row);
 };
 
-export const deleteRow = (table, token, id) => {
+export const patchRow = (token, table, id, row) => {
+  return axios.patch(`https://requirements-c506c.firebaseio.com/${table}/${id}.json?auth=${token}`, row);
+};
+
+export const deleteRow = (token, table, id) => {
   return axios.delete(`https://requirements-c506c.firebaseio.com/${table}/${id}.json?auth=${token}`)
 }
