@@ -21,16 +21,16 @@ const RailLoads = ({ railLoads1, railLoads2 }) => {
   ];
   const columns2 = [
     {
+      name: "equipment type",
+      style: {
+        width: "50%"
+      }
+    },
+    {
       name: "abbreviation",
       style: {
         width: "50%",
         textTransform: "uppercase"
-      }
-    },
-    {
-      name: "equipment type",
-      style: {
-        width: "50%"
       }
     }
   ];
