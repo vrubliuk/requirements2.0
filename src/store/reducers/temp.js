@@ -5,7 +5,8 @@ const initialState = {
   spinner: true,
   modal: null,
   error: false,
-  filter: null
+  filter: null,
+  loader: false
 };
 
 const setSpinner = (state, action) => {
@@ -30,6 +31,11 @@ const setFilter = (state, action) => {
   return updateState(state, { filter: action.payload });
 };
 
+const setLoader = (state, action) => {
+  return updateState(state, { loader: action.payload });
+};
+
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SET_SPINNER:
@@ -42,6 +48,8 @@ const reducer = (state = initialState, action) => {
       return toggleError(state);
     case actionTypes.SET_FILTER:
       return setFilter(state, action);
+      case actionTypes.SET_LOADER:
+      return setLoader(state, action);
     default:
       return state;
   }

@@ -8,6 +8,7 @@ export const SHOW_IN_MODAL = "SHOW_IN_MODAL"
 export const CLOSE_MODAL = "CLOSE_MODAL"
 export const SET_SPINNER = "SET_SPINNER"
 export const SET_FILTER = "SET_FILTER"
+export const SET_LOADER = "SET_LOADER"
 
 export const INIT_ADD_ROW = "INIT_ADD_ROW"
 export const INIT_UPDATE_ROW = "INIT_UPDATE_ROW"

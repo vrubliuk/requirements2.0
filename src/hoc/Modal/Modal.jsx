@@ -2,6 +2,7 @@ import React from "react";
 import "./Modal.css";
 import { connect } from "react-redux";
 import Close from "../../components/buttons/Close/Close.jsx"
+import Loader from "../../components/Loader/Loader.jsx"
 import Auth from "../../components/popups/Auth/Auth.jsx"
 import AddRequirementsRow from "../../components/popups/AddRequirementsRow/AddRequirementsRow.jsx"
 import AddOfficesRow from "../../components/popups/AddOfficesRow/AddOfficesRow.jsx"
@@ -11,7 +12,7 @@ import EditRequirementsRow from "../../components/popups/EditRequirementsRow/Edi
 import EditOfficesRow from "../../components/popups/EditOfficesRow/EditOfficesRow.jsx"
 import EditRailLoadsRow from "../../components/popups/EditRailLoadsRow/EditRailLoadsRow.jsx"
 
-const Modal = ({modal}) => {
+const Modal = ({modal, loader}) => {
   const popups = {
     Auth: <Auth/>,
     AddRequirementsRow: <AddRequirementsRow/>,
@@ -28,6 +29,7 @@ const Modal = ({modal}) => {
       <div className="Modal__inner">
       {popups[modal.component]}
       <Close />
+      {loader && <Loader/>}
       </div>
     </div>
   );
@@ -36,7 +38,8 @@ const Modal = ({modal}) => {
 
 const mapStateToProps = state => {
   return {
-    modal: state.temp.modal
+    modal: state.temp.modal,
+    loader: state.temp.loader
   };
 };
 

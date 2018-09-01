@@ -22,6 +22,19 @@
   right: -20px;
 }
 
+/* .Modal__inner .Loader {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  margin: auto;
+} */
+.Modal__inner .Loader {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+}
+
 .Modal__header {
   height: 40px;
   display: flex;

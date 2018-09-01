@@ -34,3 +34,10 @@ export const setFilter = (payload) => {
     payload
   }
 }
+
+export const setLoader = (payload) => {
+  return {
+    type: actionTypes.SET_LOADER,
+    payload
+  }
+}
