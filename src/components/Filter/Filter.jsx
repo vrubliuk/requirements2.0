@@ -30,8 +30,8 @@ class Filter extends Component {
     this.props.setFilter(null);
   };
 
-  toggleInputWidth = () => {
-    this.state.word ? this.setState({ additionalInputStyle: { width: this.props.width } }) : this.setState({ additionalInputStyle: null });
+  toggleInputStyle = () => {
+    this.state.word ? this.setState({ additionalInputStyle: { width: this.props.width, borderRight: "4px solid #333333" } }) : this.setState({ additionalInputStyle: null });
   };
 
   handleClickCaret = () => {
@@ -62,7 +62,7 @@ class Filter extends Component {
   handleInputChange = e => {
     this.setState({ word: e.target.value }, () => {
       this.state.word ? this.setFilterAs("word") : this.clearFilter();
-      this.toggleInputWidth();
+      this.toggleInputStyle();
     });
   };
 
