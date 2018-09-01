@@ -32,7 +32,7 @@ class AddOfficesRow extends Component {
     const color = colors[this.props.location.pathname].dark;
     return (
       <div className="AddOfficesRow">
-        <div className="Modal__title">Add new office</div>
+        <div className="Modal__title">Add row</div>
         <form className="Modal__form" onSubmit={this.handleSubmit}>
           <div className="Modal__label">Office</div>
           <input className="Modal__input" type="text" required value={this.state.office} onChange={e => this.handleInput(e, "office")} />

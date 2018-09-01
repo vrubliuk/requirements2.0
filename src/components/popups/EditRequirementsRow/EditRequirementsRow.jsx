@@ -76,7 +76,7 @@ class EditRequirementsRow extends Component {
 
     return (
       <div className="EditRequirementsRow">
-        <div className="Modal__title">Edit requirement</div>
+        <div className="Modal__title">Edit row</div>
         <form className="Modal__form" onSubmit={this.handleSubmit}>
           <div className="Modal__label">Customer</div>
           <input className="Modal__input" type="text" required value={this.state.сustomer} onChange={e => this.handleInput(e, "сustomer")} />

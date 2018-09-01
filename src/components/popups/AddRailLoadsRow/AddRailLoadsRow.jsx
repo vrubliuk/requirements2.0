@@ -67,7 +67,7 @@ class AddRailLoadsRow extends Component {
 
     return (
       <div className="AddRailLoadsRow">
-        <div className="Modal__title">Add new rail loads information</div>
+        <div className="Modal__title">Add row</div>
         <div className="Modal__header">
           <div className="Modal__switch" style={{ borderBottom: this.state.currentTable === 1 && `2px solid ${color}` }} onClick={() => this.setState({ currentTable: 1 })}>
             Table 1
