@@ -32,14 +32,14 @@ class Auth extends Component {
           <div className="Modal__label">Password</div>
           <input className="Modal__input" type="password" required value={this.state.password} onChange={e => this.handleInput(e, "password")} />
           <div className="Modal__footer">
+            <button className="Modal__button" style={{ background: color }} type="submit">
+              Log in
+            </button>
             {this.props.error && (
               <div className="Modal__error" style={{ color }}>
                 Incorrect email address or password
               </div>
             )}
-            <button className="Modal__button" style={{ background: color }} type="submit">
-              Log in
-            </button>
           </div>
         </form>
       </div>

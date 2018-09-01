@@ -20,7 +20,7 @@ class AddOfficesRow extends Component {
   handleSubmit = e => {
     if (!e.target.checkValidity()) return;
     e.preventDefault();
-    this.props.addRow("offices", {
+    this.props.initAddRow("offices", {
       office: this.state.office,
       abbreviation: this.state.abbreviation,
       leader: this.state.leader,
@@ -43,8 +43,8 @@ class AddOfficesRow extends Component {
           <div className="Modal__label">GSM</div>
           <input className="Modal__input" type="text" required value={this.state.GSM} onChange={e => this.handleInput(e, "GSM")} />
           <div className="Modal__footer">
-            <button className="Modal__button" style={{ background: color }} type="submit">
-              Add
+            <button style={{ background: color }} type="submit">
+              Save
             </button>
           </div>
         </form>
@@ -55,7 +55,7 @@ class AddOfficesRow extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addRow: (table, payload) => dispatch(actionCreators.addRow(table, payload))
+    initAddRow: (table, row) => dispatch(actionCreators.initAddRow(table, row))
   };
 };
 

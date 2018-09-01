@@ -9,7 +9,14 @@ export const CLOSE_MODAL = "CLOSE_MODAL"
 export const SET_SPINNER = "SET_SPINNER"
 export const SET_FILTER = "SET_FILTER"
 
+export const INIT_ADD_ROW = "INIT_ADD_ROW"
 export const ADD_ROW = "ADD_ROW"
+export const INIT_UPDATE_ROW = "INIT_UPDATE_ROW"
+export const UPDATE_ROW = "UPDATE_ROW"
+export const INIT_DELETE_ROW = "INIT_DELETE_ROW"
+export const DELETE_ROW = "DELETE_ROW"
+
+
 
 export const UPDATE_DATA = "UPDATE_DATA"
 export const SET_DATA = "SET_DATA"

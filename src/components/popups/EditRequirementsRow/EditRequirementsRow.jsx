@@ -12,27 +12,44 @@ class EditRequirementsRow extends Component {
     releaseSheetLink: "",
     releaseSheetAE: ""
   };
+
+  updateInputs = () => {
+    Object.keys(this.props.data.row).forEach(cell => {
+      this.setState({ [cell]: this.props.data.row[cell] });
+    });
+  };
+
   handleInput = (e, type) => {
     this.setState({
       [type]: e.target.value
     });
   };
+
   handleSubmit = e => {
     if (!e.target.checkValidity()) return;
     e.preventDefault();
-    this.props.addRow("requirements", {
-      сustomer: this.state.сustomer,
-      documentation: this.state.documentation,
-      releaseSheetLink: this.state.releaseSheetLink,
-      releaseSheetAE: this.state.releaseSheetAE
-    });
+    // this.props.initAddRow("requirements", {
+    //   сustomer: this.state.сustomer,
+    //   documentation: this.state.documentation,
+    //   releaseSheetLink: this.state.releaseSheetLink,
+    //   releaseSheetAE: this.state.releaseSheetAE
+    // });
   };
+
+  handleDelete = () => {
+    this.props.initDeleteRow("requirements", this.props.data.id)
+  }
+
+  componentDidMount() {
+   
+    this.updateInputs();
+  }
 
   render() {
     const color = colors[this.props.location.pathname].dark;
     return (
       <div className="EditRequirementsRow">
-        <div className="Modal__title">Add new requirement</div>
+        <div className="Modal__title">Edit requirement</div>
         <form className="Modal__form" onSubmit={this.handleSubmit}>
           <div className="Modal__label">Customer</div>
           <input className="Modal__input" type="text" required value={this.state.сustomer} onChange={e => this.handleInput(e, "сustomer")} />
@@ -43,8 +60,11 @@ class EditRequirementsRow extends Component {
           <div className="Modal__label">Responsible AE for release sheet</div>
           <input className="Modal__input" type="text" value={this.state.releaseSheetAE} onChange={e => this.handleInput(e, "releaseSheetAE")} />
           <div className="Modal__footer">
-            <button className="Modal__button" style={{ background: color }} type="submit">
-              Add
+            <button style={{ background: color }} type="submit">
+              Save
+            </button>
+            <button className="Modal__button-secondary" style={{ borderColor: color, color }} type="button" onClick={this.handleDelete}>
+              Delete
             </button>
           </div>
         </form>
@@ -55,7 +75,8 @@ class EditRequirementsRow extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addRow: (table, payload) => dispatch(actionCreators.addRow(table, payload))
+    // initUpdateRow: (table, payload) => dispatch(actionCreators.initUpdateRow(table, payload)),
+    initDeleteRow: (table, id) => dispatch(actionCreators.initDeleteRow(table, id))
   };
 };
 

@@ -7,7 +7,7 @@ import * as actionCreators from "../../store/actions/actionCreators"
 import Radium from "radium";
 import RS from "../buttons/RS/RS.jsx";
 
-const TableRow = ({ table, id, row, columns, location }) => {
+const TableRow = ({ table, id, row, columns, location, showInModal }) => {
   let rowColumns;
   let style = null;
 
@@ -48,9 +48,18 @@ const TableRow = ({ table, id, row, columns, location }) => {
       }
     };
   }
+  const popups = {
+    "/": "EditRequirementsRow",
+    "/offices": "EditOfficesRow",
+    "/rail-loads": "EditRailLoadsRow",
+  }
 
   const handleDoubleClick = () => {
-    alert('a')
+    showInModal(popups[location.pathname], {
+      table,
+      id,
+      row
+    })
     
   }
 

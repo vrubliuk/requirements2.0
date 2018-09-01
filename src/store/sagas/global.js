@@ -1,5 +1,5 @@
-import { delay } from "redux-saga";
-import { put, select } from "redux-saga/effects";
+// import { delay } from "redux-saga";
+import { put } from "redux-saga/effects";
 import * as actionCreators from "../actions/actionCreators";
 import * as API from "../utility/API";
 import { updateTokens } from "./auth";
@@ -20,11 +20,11 @@ export function* updateData() {
   if (localStorage.refreshTokenRequirements) {
     yield updateTokens();
     yield fetchDatabase();
-    // yield delay(1500) UNCOMMENT LATER
+    // yield delay(1000) UNCOMMENT LATER
     yield put(actionCreators.setSpinner(false));
   } else {
     yield fetchDatabase();
-    // yield delay(1500) UNCOMMENT LATER
+    // yield delay(1000) UNCOMMENT LATER
     yield put(actionCreators.setSpinner(false));
   }
 }

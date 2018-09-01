@@ -20,7 +20,7 @@ class AddRequirementsRow extends Component {
   handleSubmit = e => {
     if (!e.target.checkValidity()) return;
     e.preventDefault();
-    this.props.addRow("requirements", {
+    this.props.initAddRow("requirements", {
       сustomer: this.state.сustomer,
       documentation: this.state.documentation,
       releaseSheetLink: this.state.releaseSheetLink,
@@ -43,8 +43,8 @@ class AddRequirementsRow extends Component {
           <div className="Modal__label">Responsible AE for release sheet</div>
           <input className="Modal__input" type="text" value={this.state.releaseSheetAE} onChange={e => this.handleInput(e, "releaseSheetAE")} />
           <div className="Modal__footer">
-            <button className="Modal__button" style={{ background: color }} type="submit">
-              Add
+            <button style={{ background: color }} type="submit">
+              Save
             </button>
           </div>
         </form>
@@ -55,7 +55,7 @@ class AddRequirementsRow extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addRow: (table, payload) => dispatch(actionCreators.addRow(table, payload))
+    initAddRow: (table, row) => dispatch(actionCreators.initAddRow(table, row))
   };
 };
 

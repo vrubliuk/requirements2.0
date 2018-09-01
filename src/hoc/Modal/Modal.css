@@ -75,7 +75,7 @@
 
 
 
-.Modal__footer {
+/* .Modal__footer {
  position: relative;
  height: 40px;
 }
@@ -93,4 +93,26 @@
   position: absolute;
   bottom: 0;
   right: 0;
-}
+} */
+.Modal__footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 40px;
+  flex-direction: row-reverse;
+ }
+ 
+ .Modal__error {
+   font-size: 0.9rem;
+   font-weight: 900;
+   /* position: absolute; */
+   /* bottom: 0;
+   left: 0; */
+ 
+ }
+ 
+ .Modal__button-secondary {
+   border-width: 2px;
+   border-style: solid;
+   background: #d9d9d9;
+ }

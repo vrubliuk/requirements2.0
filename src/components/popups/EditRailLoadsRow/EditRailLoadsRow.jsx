@@ -31,7 +31,7 @@ class EditRailLoadsRow extends Component {
             equipmentType: this.state.equipmentType,
             abbreviation: this.state.abbreviation
           };
-    this.props.addRow(`railLoads${this.state.currentTable}`, payload);
+    this.props.initAddRow(`railLoads${this.state.currentTable}`, payload);
   };
 
   render() {
@@ -84,7 +84,7 @@ class EditRailLoadsRow extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addRow: (table, payload) => dispatch(actionCreators.addRow(table, payload))
+    initAddRow: (table, payload) => dispatch(actionCreators.initAddRow(table, payload))
   };
 };
 

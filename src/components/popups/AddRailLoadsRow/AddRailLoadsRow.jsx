@@ -21,7 +21,7 @@ class AddRailLoadsRow extends Component {
   handleSubmit = e => {
     if (!e.target.checkValidity()) return;
     e.preventDefault();
-    const payload =
+    const row =
       this.state.currentTable === 1
         ? {
             SCAC: this.state.SCAC,
@@ -31,7 +31,7 @@ class AddRailLoadsRow extends Component {
             equipmentType: this.state.equipmentType,
             abbreviation: this.state.abbreviation
           };
-    this.props.addRow(`railLoads${this.state.currentTable}`, payload);
+    this.props.initAddRow(`railLoads${this.state.currentTable}`, row);
   };
 
   render() {
@@ -44,8 +44,8 @@ class AddRailLoadsRow extends Component {
           <div className="Modal__label">Carrier</div>
           <input className="Modal__input" type="text" value={this.state.carrier} onChange={e => this.handleInput(e, "carrier")} />
           <div className="Modal__footer">
-            <button className="Modal__button" style={{ background: color }} type="submit">
-              Add
+            <button style={{ background: color }} type="submit">
+              Save
             </button>
           </div>
         </form>
@@ -57,8 +57,8 @@ class AddRailLoadsRow extends Component {
           <div className="Modal__label">Abbreviation</div>
           <input className="Modal__input" type="text" value={this.state.abbreviation} onChange={e => this.handleInput(e, "abbreviation")} />
           <div className="Modal__footer">
-            <button className="Modal__button" style={{ background: color }} type="submit">
-              Add
+            <button style={{ background: color }} type="submit">
+              Save
             </button>
           </div>
         </form>
@@ -84,7 +84,7 @@ class AddRailLoadsRow extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addRow: (table, payload) => dispatch(actionCreators.addRow(table, payload))
+    initAddRow: (table, row) => dispatch(actionCreators.initAddRow(table, row))
   };
 };
 

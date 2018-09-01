@@ -20,7 +20,7 @@ class EditOfficesRow extends Component {
   handleSubmit = e => {
     if (!e.target.checkValidity()) return;
     e.preventDefault();
-    this.props.addRow("offices", {
+    this.props.initAddRow("offices", {
       office: this.state.office,
       abbreviation: this.state.abbreviation,
       leader: this.state.leader,
@@ -55,7 +55,7 @@ class EditOfficesRow extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addRow: (table, payload) => dispatch(actionCreators.addRow(table, payload))
+    initAddRow: (table, payload) => dispatch(actionCreators.initAddRow(table, payload))
   };
 };
 

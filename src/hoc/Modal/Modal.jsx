@@ -7,6 +7,9 @@ import AddRequirementsRow from "../../components/popups/AddRequirementsRow/AddRe
 import AddOfficesRow from "../../components/popups/AddOfficesRow/AddOfficesRow.jsx"
 import AddRailLoadsRow from "../../components/popups/AddRailLoadsRow/AddRailLoadsRow.jsx"
 import RSInfo from "../../components/popups/RSInfo/RSInfo.jsx"
+import EditRequirementsRow from "../../components/popups/EditRequirementsRow/EditRequirementsRow.jsx"
+import EditOfficesRow from "../../components/popups/EditOfficesRow/EditOfficesRow.jsx"
+import EditRailLoadsRow from "../../components/popups/EditRailLoadsRow/EditRailLoadsRow.jsx"
 
 const Modal = ({modal}) => {
   const popups = {
@@ -14,7 +17,10 @@ const Modal = ({modal}) => {
     AddRequirementsRow: <AddRequirementsRow/>,
     AddOfficesRow: <AddOfficesRow/>,
     AddRailLoadsRow: <AddRailLoadsRow/>,
-    RSInfo: <RSInfo data={modal.data}/>
+    RSInfo: <RSInfo data={modal.data}/>,
+    EditRequirementsRow: <EditRequirementsRow data={modal.data}/>,
+    EditOfficesRow: <EditOfficesRow data={modal.data}/>,
+    EditRailLoadsRow: <EditRailLoadsRow data={modal.data}/>
   }
 
   return (
