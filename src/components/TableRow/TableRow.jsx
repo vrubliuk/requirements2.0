@@ -64,7 +64,7 @@ const TableRow = ({ table, id, row, columns, location, showInModal }) => {
   }
 
   return (
-    <tr className="TableRow" style={style} onDoubleClick={handleDoubleClick}>
+    <tr className="TableRow" style={style} onDoubleClick={row === "heading" ? null : handleDoubleClick}>
       {rowColumns}
     </tr>
   );
