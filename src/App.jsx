@@ -26,7 +26,7 @@ class App extends Component {
 
   componentDidMount() {
     this.props.updateData();
-    this.interval = setInterval(() => this.props.updateTokens(), 1800000);
+    this.interval = setInterval(() => this.props.updateData(), 1800000);
     this.watchTop();
     window.addEventListener("scroll", this.watchTop);
   }
@@ -71,8 +71,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateData: () => dispatch(actionCreators.updateData()),
-    updateTokens: () => dispatch(actionCreators.updateTokens())
+    updateData: () => dispatch(actionCreators.updateData())
   };
 };
 
