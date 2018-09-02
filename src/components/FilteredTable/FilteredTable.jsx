@@ -1,64 +1,69 @@
-import React from 'react';
-import Table from '../Table/Table.jsx'
-import {connect} from 'react-redux'
+import React from "react";
+import Table from "../Table/Table.jsx";
+import { connect } from "react-redux";
 
-const FilteredTable = ({table, data, columns, filter}) => {
-  // console.log(data);
-  console.log("filter", filter);
-  
-  const transformToArray = (data) => {
+const FilteredTable = ({ table, data, columns, filter }) => {
+
+  const transformToArray = data => {
     return Object.keys(data).map(key => {
       let values = {};
       Object.keys(data[key]).forEach(value => {
         values[value] = data[key][value];
-      })
-      return {key, ...values}
+      });
+      return { key, ...values };
     });
-  }
+  };
 
-  const sortAlphabetically = (data) => {
-    return data.sort((a, b)=> {
-      const x = a.сustomer.toLowerCase()
-      const y = b.сustomer.toLowerCase() 
-      if (x > y) { 
-        return 1; 
-      } 
-      if (x < y) { 
-        return -1; 
-      } 
+  const sortAlphabetically = data => {
+    return data.sort((a, b) => {
+      const x = a.customer.toLowerCase();
+      const y = b.customer.toLowerCase();
+      if (x > y) {
+        return 1;
+      }
+      if (x < y) {
+        return -1;
+      }
       return 0;
-    })
-  }
+    });
+  };
 
+  const filteredByWord = data => {
+    return data.filter(item => item[filter.by].toLowerCase().includes(filter.value));
+  };
 
+  const filteredByLetter = data => {
+    return data.filter(item => {
+      const itemValue = item[filter.by].slice(0, 1).toLowerCase();
+      return filter.value !== "0-9" ?  itemValue.includes(filter.value) : /[0-9]/.test(itemValue) 
+    });
+  };
 
-
-
-
-
-
-  const transformToObject = (data) => {
-    let obj = {}
+  const transformToObject = data => {
+    let obj = {};
     data.forEach(item => {
-      obj[item.key] = {}
+      obj[item.key] = {};
       Object.keys(item).forEach(value => {
-        if(value !== "key") obj[item.key][value] = item[value]
-      })
-    })
+        if (value !== "key") obj[item.key][value] = item[value];
+      });
+    });
     return obj;
+  };
+
+  let updatedData = { ...data };
+  if (data) {
+    const transformedToArray = transformToArray(data);
+    const sorted = sortAlphabetically(transformedToArray);
+    let filtered = null;
+    !filter && (filtered = sorted)
+    filter && filter.type === "word" && (filtered = filteredByWord(sorted));
+    filter && filter.type === "letter" && (filtered = filteredByLetter(sorted));
+    const transformedToObject = transformToObject(filtered);
+    updatedData = transformedToObject;
   }
 
-
-  let transformedToArray = transformToArray(data)
-  console.log("transformedToArray", transformedToArray);
-  let sorted = sortAlphabetically(transformedToArray);
-  console.log("sorted", sorted);
-  let transformedToObject = transformToObject(sorted);
-  console.log("transformedToObject", transformedToObject);
-
-  return <Table table={table} data={transformedToObject} columns={columns} />
-
-}
+  return <Table table={table} data={updatedData} columns={columns} />;
+};
 
 const mapStateToProps = state => {
   return {

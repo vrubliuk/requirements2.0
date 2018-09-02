@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 
 const columns = [
   {
-    name: "сustomer",
+    name: "customer",
     style: {
       width: "30%",
       textTransform: "uppercase"

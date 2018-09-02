@@ -8,7 +8,7 @@ import Delete from "../../buttons/Delete/Delete.jsx";
 
 class EditRequirementsRow extends Component {
   state = {
-    сustomer: "",
+    customer: "",
     documentation: "",
     releaseSheetLink: "",
     releaseSheetAE: "",
@@ -31,7 +31,7 @@ class EditRequirementsRow extends Component {
     if (!e.target.checkValidity()) return;
     e.preventDefault();
     this.props.initUpdateRow("requirements", this.props.data.id, {
-      сustomer: this.state.сustomer.trim(),
+      customer: this.state.customer.trim(),
       documentation: this.state.documentation.trim(),
       releaseSheetLink: this.state.releaseSheetLink.trim(),
       releaseSheetAE: this.state.releaseSheetAE.trim()
@@ -79,7 +79,7 @@ class EditRequirementsRow extends Component {
         <div className="Modal__title">Edit row</div>
         <form className="Modal__form" onSubmit={this.handleSubmit}>
           <div className="Modal__label">Customer</div>
-          <input className="Modal__input" type="text" required value={this.state.сustomer} onChange={e => this.handleInput(e, "сustomer")} />
+          <input className="Modal__input" type="text" required value={this.state.customer} onChange={e => this.handleInput(e, "customer")} />
           <div className="Modal__label">Documentation</div>
           <textarea className="Modal__textarea" required value={this.state.documentation} onChange={e => this.handleInput(e, "documentation")} />
           <div className="Modal__label">Release sheet link on shared drive</div>
