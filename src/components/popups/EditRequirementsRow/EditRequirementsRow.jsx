@@ -31,10 +31,10 @@ class EditRequirementsRow extends Component {
     if (!e.target.checkValidity()) return;
     e.preventDefault();
     this.props.initUpdateRow("requirements", this.props.data.id, {
-      сustomer: this.state.сustomer,
-      documentation: this.state.documentation,
-      releaseSheetLink: this.state.releaseSheetLink,
-      releaseSheetAE: this.state.releaseSheetAE
+      сustomer: this.state.сustomer.trim(),
+      documentation: this.state.documentation.trim(),
+      releaseSheetLink: this.state.releaseSheetLink.trim(),
+      releaseSheetAE: this.state.releaseSheetAE.trim()
     });
   };
 

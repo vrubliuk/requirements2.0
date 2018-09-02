@@ -18,7 +18,7 @@ class Auth extends Component {
   handleSubmit = e => {
     if (!e.target.checkValidity()) return;
     e.preventDefault();
-    this.props.logIn(this.state.email, this.state.password);
+    this.props.logIn(this.state.email.trim(), this.state.password.trim());
   };
 
   render() {

@@ -38,12 +38,12 @@ class EditRailLoadsRow extends Component {
     const row =
       this.state.currentTable === 'railLoads1'
         ? {
-            SCAC: this.state.SCAC,
-            carrier: this.state.carrier
+            SCAC: this.state.SCAC.trim(),
+            carrier: this.state.carrier.trim()
           }
         : {
-            equipmentType: this.state.equipmentType,
-            abbreviation: this.state.abbreviation
+            equipmentType: this.state.equipmentType.trim(),
+            abbreviation: this.state.abbreviation.trim()
           };
     this.props.initUpdateRow(this.state.currentTable, this.props.data.id, row);
   };

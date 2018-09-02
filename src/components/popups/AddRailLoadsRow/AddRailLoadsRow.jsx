@@ -24,12 +24,12 @@ class AddRailLoadsRow extends Component {
     const row =
       this.state.currentTable === 1
         ? {
-            SCAC: this.state.SCAC,
-            carrier: this.state.carrier
+            SCAC: this.state.SCAC.trim(),
+            carrier: this.state.carrier.trim()
           }
         : {
-            equipmentType: this.state.equipmentType,
-            abbreviation: this.state.abbreviation
+            equipmentType: this.state.equipmentType.trim(),
+            abbreviation: this.state.abbreviation.trim()
           };
     this.props.initAddRow(`railLoads${this.state.currentTable}`, row);
   };

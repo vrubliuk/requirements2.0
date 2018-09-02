@@ -31,10 +31,10 @@ class EditOfficesRow extends Component {
     if (!e.target.checkValidity()) return;
     e.preventDefault();
     this.props.initUpdateRow("offices", this.props.data.id, {
-      office: this.state.office,
-      abbreviation: this.state.abbreviation,
-      leader: this.state.leader,
-      GSM: this.state.GSM
+      office: this.state.office.trim(),
+      abbreviation: this.state.abbreviation.trim(),
+      leader: this.state.leader.trim(),
+      GSM: this.state.GSM.trim()
     });
   };
 

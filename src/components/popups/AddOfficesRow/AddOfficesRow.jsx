@@ -21,10 +21,10 @@ class AddOfficesRow extends Component {
     if (!e.target.checkValidity()) return;
     e.preventDefault();
     this.props.initAddRow("offices", {
-      office: this.state.office,
-      abbreviation: this.state.abbreviation,
-      leader: this.state.leader,
-      GSM: this.state.GSM
+      office: this.state.office.trim(),
+      abbreviation: this.state.abbreviation.trim(),
+      leader: this.state.leader.trim(),
+      GSM: this.state.GSM.trim()
     });
   };
 

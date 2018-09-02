@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Requirements.css";
-import Table from "../../components/Table/Table.jsx";
+import FilteredTable from "../../components/FilteredTable/FilteredTable.jsx";
 import Filter from "../../components/Filter/Filter.jsx";
 import { connect } from "react-redux";
 
@@ -58,7 +58,7 @@ class Requirements extends Component {
         <div className="Requirements__inner" ref={this.innerContainer}>
           <div className="cover" style={{ width: this.state.filterWidth }} />
           <Filter width={this.state.filterWidth} top={this.state.filterTop} />
-          <Table table="requirements" data={this.props.requirements} columns={columns} />
+          <FilteredTable table="requirements" data={this.props.requirements} columns={columns} />
         </div>
       </div>
     );

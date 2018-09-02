@@ -14,7 +14,7 @@ class Filter extends Component {
   setFilterAs = type => {
     this.props.setFilter({
       type,
-      value: type === "word" ? this.state.word : this.state.letter,
+      value: type === "word" ? this.state.word.trim().toLowerCase() : this.state.letter,
       by: this.state.by
     });
   };
