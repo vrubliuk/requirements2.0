@@ -51,9 +51,8 @@ class App extends Component {
               <Route path="/rail-loads" exact component={RailLoads} />
               <Redirect to="/" />
             </Switch>
-            <Add />
+            {this.props.token && <Add />}
             {this.state.showUp && <Up />}
-
             {this.props.modal && <Modal />}
           </Fragment>
         )}
@@ -65,7 +64,8 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     spinner: state.temp.spinner,
-    modal: state.temp.modal
+    modal: state.temp.modal,
+    token: state.auth.token
   };
 };
 

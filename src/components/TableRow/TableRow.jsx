@@ -7,7 +7,7 @@ import * as actionCreators from "../../store/actions/actionCreators"
 import Radium from "radium";
 import RS from "../buttons/RS/RS.jsx";
 
-const TableRow = ({ table, id, row, columns, location, showInModal }) => {
+const TableRow = ({ table, id, row, columns, location, token, showInModal }) => {
   let rowColumns;
   let style = null;
 
@@ -64,12 +64,17 @@ const TableRow = ({ table, id, row, columns, location, showInModal }) => {
   }
 
   return (
-    <tr className="TableRow" style={style} onDoubleClick={row === "heading" ? null : handleDoubleClick}>
+    <tr className="TableRow" style={style} onDoubleClick={row !== "heading" && token ? handleDoubleClick : null}>
       {rowColumns}
     </tr>
   );
 };
 
+const mapStateToProps = state => {
+  return {
+    token: state.auth.token
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -77,4 +82,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default withRouter(  connect(null, mapDispatchToProps)(Radium(TableRow))   );
+export default withRouter(  connect(mapStateToProps, mapDispatchToProps)(Radium(TableRow))   );
