@@ -9,7 +9,7 @@ import Log from "./components/buttons/Log/Log.jsx";
 import Requirements from "./containers/Requirements/Requirements.jsx";
 import Offices from "./containers/Offices/Offices.jsx";
 import RailLoads from "./containers/RailLoads/RailLoads.jsx";
-import Modal from "./hoc/Modal/Modal";
+import Modal from "./containers/Modal/Modal.jsx";
 import Add from "./components/buttons/Add/Add.jsx";
 import Up from "./components/buttons/Up/Up.jsx";
 
