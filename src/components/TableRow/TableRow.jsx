@@ -13,7 +13,7 @@ const TableRow = ({ table, id, row, columns, location, token, showInModal }) => 
 
   if (row === "heading") {
     rowColumns = columns.map((column, i) => (
-      <th className="TableRow" style={column.style} key={i}>
+      <th style={{...column.style, fontSize: "1.1rem"}} key={i}>
         {column.name}
       </th>
     ));

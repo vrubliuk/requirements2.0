@@ -15,7 +15,8 @@ const columns = [
   {
     name: "documentation",
     style: {
-      width: "70%"
+      width: "70%",
+      fontSize: "0.9rem"
     }
   }
 ];
