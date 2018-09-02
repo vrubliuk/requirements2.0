@@ -8,13 +8,14 @@ const Offices = ({ offices }) => {
     {
       name: "office",
       style: {
-        width: "25%",
+        width: "25%"
       }
     },
     {
       name: "abbreviation",
       style: {
-        width: "25%"
+        width: "25%",
+        textTransform: "uppercase"
       }
     },
     {
@@ -33,9 +34,7 @@ const Offices = ({ offices }) => {
 
   return (
     <div className="Offices">
-      <div className="Offices__inner">
-        <Table table="offices" data={offices} columns={columns} />
-      </div>
+      <div className="Offices__inner">{Object.keys(offices).length ? <Table table="offices" data={offices} columns={columns} /> : null }</div>
     </div>
   );
 };

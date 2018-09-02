@@ -38,8 +38,8 @@ const RailLoads = ({ railLoads1, railLoads2 }) => {
   return (
     <div className="RailLoads">
       <div className="RailLoads__inner">
-        <Table table="railLoads1" data={railLoads1} columns={columns1} />
-        <Table table="railLoads2" data={railLoads2} columns={columns2} />
+        {Object.keys(railLoads1).length ? <Table table="railLoads1" data={railLoads1} columns={columns1} /> : null}
+        {Object.keys(railLoads2).length ? <Table table="railLoads2" data={railLoads2} columns={columns2} /> : null}
       </div>
     </div>
   );

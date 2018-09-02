@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import "./Requirements.css";
 import FilteredTable from "../../components/FilteredTable/FilteredTable.jsx";
 import Filter from "../../components/Filter/Filter.jsx";
@@ -57,8 +57,12 @@ class Requirements extends Component {
       <div className="Requirements">
         <div className="Requirements__inner" ref={this.innerContainer}>
           <div className="cover" style={{ width: this.state.filterWidth }} />
-          <Filter width={this.state.filterWidth} top={this.state.filterTop} />
-          <FilteredTable table="requirements" data={this.props.requirements} columns={columns} />
+          {Object.keys(this.props.requirements).length ? (
+            <Fragment>
+              <Filter width={this.state.filterWidth} top={this.state.filterTop} />
+              <FilteredTable table="requirements" data={this.props.requirements} columns={columns} />
+            </Fragment>
+          ) : null}
         </div>
       </div>
     );

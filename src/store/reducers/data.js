@@ -9,7 +9,7 @@ const initialState = {
 };
 
 const setData = (state, action) => {
-  return updateState(state, { [action.table]: action.payload });
+  return updateState(state, { [action.table]: action.payload ? action.payload : {} });
 };
 
 const setRow = (state, action) => {

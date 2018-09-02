@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Fragment } from "react";
+import './FilteredTable.css';
 import Table from "../Table/Table.jsx";
 import { connect } from "react-redux";
 
 const FilteredTable = ({ table, data, columns, filter }) => {
-
   const transformToArray = data => {
     return Object.keys(data).map(key => {
       let values = {};
@@ -35,7 +35,7 @@ const FilteredTable = ({ table, data, columns, filter }) => {
   const filteredByLetter = data => {
     return data.filter(item => {
       const itemValue = item[filter.by].slice(0, 1).toLowerCase();
-      return filter.value !== "0-9" ?  itemValue.includes(filter.value) : /[0-9]/.test(itemValue) 
+      return filter.value !== "0-9" ? itemValue.includes(filter.value) : /[0-9]/.test(itemValue);
     });
   };
 
@@ -55,14 +55,19 @@ const FilteredTable = ({ table, data, columns, filter }) => {
     const transformedToArray = transformToArray(data);
     const sorted = sortAlphabetically(transformedToArray);
     let filtered = null;
-    !filter && (filtered = sorted)
+    !filter && (filtered = sorted);
     filter && filter.type === "word" && (filtered = filteredByWord(sorted));
     filter && filter.type === "letter" && (filtered = filteredByLetter(sorted));
     const transformedToObject = transformToObject(filtered);
     updatedData = transformedToObject;
   }
 
-  return <Table table={table} data={updatedData} columns={columns} />;
+  return (
+    <Fragment>
+      {Object.keys(updatedData).length ? <Table table={table} data={updatedData} columns={columns} /> : null}
+      {Object.keys(updatedData).length ? null : <div className="FilteredTable__error">Nothing has been found</div>}
+    </Fragment>
+  );
 };
 
 const mapStateToProps = state => {
