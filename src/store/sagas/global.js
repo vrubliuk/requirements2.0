@@ -25,7 +25,7 @@ export function* updateData() {
     yield fetchDatabase();
   }
   if(state.temp.spinner) {
-    yield delay(1000);
+    yield delay(500);
     yield put(actionCreators.setSpinner(false))
   }
 }
