@@ -4,16 +4,11 @@
 
 .Requirements__inner {
   max-width: 1250px;
-  /* border: 1px solid red;  */
   margin: auto;
   padding: 100px 0 25px;
 }
 
-/* .Requirements .Table{
-  margin: 100px auto 25px;
-} */
-
-.cover {
+.Requirements__cover {
   height: 25px;
   background: white;
   position: fixed;
@@ -22,5 +17,4 @@
 
 .Requirements .Filter {
   position: fixed;
-  /* top: 25px; */
 }

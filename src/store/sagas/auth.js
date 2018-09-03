@@ -31,7 +31,7 @@ export function* updateTokens() {
       yield (localStorage.refreshTokenRequirements = res.data.refresh_token);
       yield put(actionCreators.setToken(res.data.id_token));
     } catch (err) {
-      yield alert("Not able to update the tokens")
+      yield alert("Not able to update the tokens");
     }
   }
 }

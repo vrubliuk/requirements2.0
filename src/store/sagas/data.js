@@ -1,4 +1,3 @@
-// import { delay } from "redux-saga";
 import { put, select } from "redux-saga/effects";
 import * as actionCreators from "../actions/actionCreators";
 import * as API from "../utility/API";
@@ -19,7 +18,7 @@ export function* initAddRow(action) {
 
 export function* initUpdateRow(action) {
   yield put(actionCreators.setLoader(true));
- const state = yield select();
+  const state = yield select();
   try {
     const res = yield API.patchRow(state.auth.token, action.table, action.id, action.row);
     yield put(actionCreators.setRow(action.table, action.id, res.data));

@@ -12,11 +12,7 @@ const Close = ({ location, closeModal }) => {
   };
 
   return (
-    <div
-      className="Close"
-      style={{ background: color }}
-      onClick={() => handleClick()}
-    >
+    <div className="Close" style={{ background: color }} onClick={() => handleClick()}>
       <i className="fa fa-times" aria-hidden="true" />
     </div>
   );

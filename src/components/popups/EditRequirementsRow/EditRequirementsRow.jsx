@@ -54,7 +54,7 @@ class EditRequirementsRow extends Component {
           <button style={{ background: color }} type="submit">
             Save
           </button>
-          <Delete handleClick={()=> this.setState({showDeletionConfirmation: true})} />
+          <Delete handleClick={() => this.setState({ showDeletionConfirmation: true })} />
         </div>
       ),
       2: (
@@ -63,7 +63,7 @@ class EditRequirementsRow extends Component {
             <button className="Modal__button-secondary" style={{ borderColor: color, color }} type="button" onClick={this.handleDelete}>
               Delete
             </button>
-            <button style={{ background: color}} type="button" onClick={()=> this.setState({showDeletionConfirmation: false})}>
+            <button style={{ background: color }} type="button" onClick={() => this.setState({ showDeletionConfirmation: false })}>
               Keep
             </button>
           </div>

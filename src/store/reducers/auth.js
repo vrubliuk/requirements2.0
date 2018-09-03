@@ -1,8 +1,8 @@
 import * as actionTypes from "../actions/actionTypes";
-import updateState  from "../utility/updateState";
+import updateState from "../utility/updateState";
 
 const initialState = {
-  token: null,
+  token: null
 };
 
 const setToken = (state, action) => {
@@ -10,8 +10,6 @@ const setToken = (state, action) => {
     token: action.token
   });
 };
-
-
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {

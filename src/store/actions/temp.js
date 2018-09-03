@@ -1,26 +1,25 @@
-import * as actionTypes from './actionTypes'
+import * as actionTypes from "./actionTypes";
 
-export const setSpinner = (value) => {
+export const setSpinner = value => {
   return {
     type: actionTypes.SET_SPINNER,
     value
-  }
-}
+  };
+};
 
 export const showInModal = (component, data) => {
   return {
     type: actionTypes.SHOW_IN_MODAL,
     component,
     data
-  }
-}
+  };
+};
 
 export const closeModal = () => {
   return {
-    type: actionTypes.CLOSE_MODAL,
-    
-  }
-}
+    type: actionTypes.CLOSE_MODAL
+  };
+};
 
 export const toggleError = () => {
   return {
@@ -28,16 +27,16 @@ export const toggleError = () => {
   };
 };
 
-export const setFilter = (payload) => {
+export const setFilter = payload => {
   return {
     type: actionTypes.SET_FILTER,
     payload
-  }
-}
+  };
+};
 
-export const setLoader = (payload) => {
+export const setLoader = payload => {
   return {
     type: actionTypes.SET_LOADER,
     payload
-  }
-}
+  };
+};

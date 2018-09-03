@@ -57,7 +57,7 @@ class Requirements extends Component {
     return (
       <div className="Requirements">
         <div className="Requirements__inner" ref={this.innerContainer}>
-          <div className="cover" style={{ width: this.state.filterWidth }} />
+          <div className="Requirements__cover" style={{ width: this.state.filterWidth }} />
           {Object.keys(this.props.requirements).length ? (
             <Fragment>
               <Filter width={this.state.filterWidth} top={this.state.filterTop} />

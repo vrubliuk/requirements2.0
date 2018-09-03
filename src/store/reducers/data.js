@@ -20,7 +20,7 @@ const setRow = (state, action) => {
 
 const deleteRow = (state, action) => {
   let table = { ...state[action.table] };
-  delete table[action.id]
+  delete table[action.id];
   return updateState(state, { [action.table]: table });
 };
 

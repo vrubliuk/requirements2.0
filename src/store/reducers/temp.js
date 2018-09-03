@@ -14,12 +14,15 @@ const setSpinner = (state, action) => {
 };
 
 const showInModal = (state, action) => {
-  return updateState(state, { modal: {component: action.component,
-    data: action.data
-  }});
+  return updateState(state, {
+    modal: {
+      component: action.component,
+      data: action.data
+    }
+  });
 };
 
-const closeModal = (state) => {
+const closeModal = state => {
   return updateState(state, { modal: null });
 };
 
@@ -35,7 +38,6 @@ const setLoader = (state, action) => {
   return updateState(state, { loader: action.payload });
 };
 
-
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SET_SPINNER:
@@ -43,12 +45,12 @@ const reducer = (state = initialState, action) => {
     case actionTypes.SHOW_IN_MODAL:
       return showInModal(state, action);
     case actionTypes.CLOSE_MODAL:
-      return closeModal(state)
+      return closeModal(state);
     case actionTypes.TOGGLE_ERROR:
       return toggleError(state);
     case actionTypes.SET_FILTER:
       return setFilter(state, action);
-      case actionTypes.SET_LOADER:
+    case actionTypes.SET_LOADER:
       return setLoader(state, action);
     default:
       return state;

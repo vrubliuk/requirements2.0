@@ -1,6 +1,6 @@
 {
-  "name": "requirements2.0",
-  "homepage": "https://vrubliuk.github.io/requirements2.0",
+  "name": "requirements",
+  "homepage": "https://vrubliuk.github.io/requirements",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

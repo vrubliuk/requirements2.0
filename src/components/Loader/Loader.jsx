@@ -7,7 +7,7 @@ const Loader = ({ location }) => {
   const color = colors[location.pathname].dark;
   return (
     <div className="Loader">
-      <div className="Loader__animation" style={{background: color, color}}  > </div>
+      <div className="Loader__animation" style={{ background: color, color }} />
     </div>
   );
 };

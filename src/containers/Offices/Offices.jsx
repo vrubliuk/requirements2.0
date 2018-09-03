@@ -34,7 +34,7 @@ const Offices = ({ offices }) => {
 
   return (
     <div className="Offices">
-      <div className="Offices__inner">{Object.keys(offices).length ? <Table table="offices" data={offices} columns={columns} /> : null }</div>
+      <div className="Offices__inner">{Object.keys(offices).length ? <Table table="offices" data={offices} columns={columns} /> : null}</div>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import './FilteredTable.css';
+import "./FilteredTable.css";
 import Table from "../Table/Table.jsx";
 import { connect } from "react-redux";
 

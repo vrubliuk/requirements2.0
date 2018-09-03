@@ -17,8 +17,8 @@ class EditRailLoadsRow extends Component {
   };
 
   updateCurrentTable = () => {
-    this.setState({currentTable: this.props.data.table})
-  }
+    this.setState({ currentTable: this.props.data.table });
+  };
 
   updateInputs = () => {
     Object.keys(this.props.data.row).forEach(cell => {
@@ -36,7 +36,7 @@ class EditRailLoadsRow extends Component {
     if (!e.target.checkValidity()) return;
     e.preventDefault();
     const row =
-      this.state.currentTable === 'railLoads1'
+      this.state.currentTable === "railLoads1"
         ? {
             SCAC: this.state.SCAC.trim(),
             carrier: this.state.carrier.trim()
@@ -65,7 +65,7 @@ class EditRailLoadsRow extends Component {
           <button style={{ background: color }} type="submit">
             Save
           </button>
-          <Delete handleClick={()=> this.setState({showDeletionConfirmation: true})} />
+          <Delete handleClick={() => this.setState({ showDeletionConfirmation: true })} />
         </div>
       ),
       2: (
@@ -74,7 +74,7 @@ class EditRailLoadsRow extends Component {
             <button className="Modal__button-secondary" style={{ borderColor: color, color }} type="button" onClick={this.handleDelete}>
               Delete
             </button>
-            <button style={{ background: color}} type="button" onClick={()=> this.setState({showDeletionConfirmation: false})}>
+            <button style={{ background: color }} type="button" onClick={() => this.setState({ showDeletionConfirmation: false })}>
               Keep
             </button>
           </div>
@@ -85,7 +85,7 @@ class EditRailLoadsRow extends Component {
       )
     };
     const tables = {
-      railLoads1 : (
+      railLoads1: (
         <form className="Modal__form" onSubmit={this.handleSubmit}>
           <div className="Modal__label">SCAC</div>
           <input className="Modal__input" type="text" required value={this.state.SCAC} onChange={e => this.handleInput(e, "SCAC")} />
@@ -94,7 +94,7 @@ class EditRailLoadsRow extends Component {
           {!this.state.showDeletionConfirmation ? footers[1] : footers[2]}
         </form>
       ),
-      railLoads2 : (
+      railLoads2: (
         <form className="Modal__form" onSubmit={this.handleSubmit}>
           <div className="Modal__label">Equipment type</div>
           <input className="Modal__input" type="text" value={this.state.equipmentType} onChange={e => this.handleInput(e, "equipmentType")} />
@@ -104,7 +104,6 @@ class EditRailLoadsRow extends Component {
         </form>
       )
     };
-    
 
     return (
       <div className="EditRailLoadsRow">

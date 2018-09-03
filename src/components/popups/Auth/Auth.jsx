@@ -10,11 +10,13 @@ class Auth extends Component {
     email: "",
     password: ""
   };
+
   handleInput = (e, type) => {
     this.setState({
       [type]: e.target.value
     });
   };
+
   handleSubmit = e => {
     if (!e.target.checkValidity()) return;
     e.preventDefault();

@@ -4,10 +4,9 @@
   table-layout: fixed;
 }
 
-.Table thead tr  {
+.Table thead tr {
   background-color: #f1f1f1;
 }
-.Table tbody tr:nth-child(2n)  {
+.Table tbody tr:nth-child(2n) {
   background-color: #f1f1f1;
 }
-

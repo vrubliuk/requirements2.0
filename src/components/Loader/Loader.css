@@ -7,35 +7,37 @@
   padding-top: 6px;
 }
 
-
 .Loader__animation,
 .Loader__animation:before,
 .Loader__animation:after {
   background-color: inherit;
   animation: load 1s infinite ease-in-out;
-  width: 8px; 
+  width: 8px;
   height: 8px;
 }
+
 .Loader__animation {
-  /* background: green;
-  color: inherit; */
   position: relative;
   transform: translateZ(0);
   animation-delay: -0.16s;
 }
+
 .Loader__animation:before,
 .Loader__animation:after {
   position: absolute;
   top: 0;
-  content: '';
+  content: "";
 }
+
 .Loader__animation:before {
   left: -16px;
   animation-delay: -0.32s;
 }
+
 .Loader__animation:after {
   left: 16px;
 }
+
 @keyframes load {
   0%,
   80%,

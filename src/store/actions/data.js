@@ -5,8 +5,9 @@ export const setData = (table, payload) => {
     type: actionTypes.SET_DATA,
     table,
     payload
-  }
-}
+  };
+};
+
 export const setRow = (table, id, row) => {
   return {
     type: actionTypes.SET_ROW,
@@ -31,7 +32,6 @@ export const initAddRow = (table, row) => {
     row
   };
 };
-
 
 export const initUpdateRow = (table, id, row) => {
   return {

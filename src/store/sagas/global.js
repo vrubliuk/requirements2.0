@@ -24,8 +24,8 @@ export function* updateData() {
   } else {
     yield fetchDatabase();
   }
-  if(state.temp.spinner) {
+  if (state.temp.spinner) {
     yield delay(500);
-    yield put(actionCreators.setSpinner(false))
+    yield put(actionCreators.setSpinner(false));
   }
 }

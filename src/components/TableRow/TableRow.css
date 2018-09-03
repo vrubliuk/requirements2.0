@@ -16,7 +16,7 @@
   padding: 5px;
 }
 
-.TableRow td > div{
+.TableRow td > div {
   display: flex;
   align-items: center;
   justify-content: space-between;

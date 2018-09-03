@@ -3,14 +3,18 @@ import "./Log.css";
 import { connect } from "react-redux";
 import * as actionCreators from "../../../store/actions/actionCreators";
 
-const Log = ({ token,  showInModal, logOut }) => {
+const Log = ({ token, showInModal, logOut }) => {
   let text = token ? "Log out" : "Log in";
 
   let handleClick = () => {
     token ? logOut() : showInModal("Auth");
   };
 
-  return <button className="Log" onClick={handleClick}>{text}</button>;
+  return (
+    <button className="Log" onClick={handleClick}>
+      {text}
+    </button>
+  );
 };
 
 const mapStateToProps = state => {
