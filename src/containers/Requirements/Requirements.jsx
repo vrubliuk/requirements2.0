@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import "./Requirements.css";
-import FilteredTable from "../../components/FilteredTable/FilteredTable.jsx";
+import FilteredRequirementsTable from "../../components/FilteredRequirementsTable/FilteredRequirementsTable.jsx";
 import Filter from "../../components/Filter/Filter.jsx";
 import { connect } from "react-redux";
 
@@ -61,7 +61,7 @@ class Requirements extends Component {
           {Object.keys(this.props.requirements).length ? (
             <Fragment>
               <Filter width={this.state.filterWidth} top={this.state.filterTop} />
-              <FilteredTable table="requirements" data={this.props.requirements} columns={columns} />
+              <FilteredRequirementsTable table="requirements" data={this.props.requirements} columns={columns} />
             </Fragment>
           ) : null}
         </div>

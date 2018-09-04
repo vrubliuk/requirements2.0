@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
-import "./FilteredTable.css";
+import "./FilteredRequirementsTable.css";
 import Table from "../Table/Table.jsx";
 import { connect } from "react-redux";
 
-const FilteredTable = ({ table, data, columns, filter }) => {
+const FilteredRequirementsTable = ({ table, data, columns, filter }) => {
   const transformToArray = data => {
     return Object.keys(data).map(key => {
       let values = {};
@@ -65,7 +65,7 @@ const FilteredTable = ({ table, data, columns, filter }) => {
   return (
     <Fragment>
       {Object.keys(updatedData).length ? <Table table={table} data={updatedData} columns={columns} /> : null}
-      {Object.keys(updatedData).length ? null : <div className="FilteredTable__error">Nothing has been found</div>}
+      {Object.keys(updatedData).length ? null : <div className="FilteredRequirementsTable__error">Nothing has been found</div>}
     </Fragment>
   );
 };
@@ -76,4 +76,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(FilteredTable);
+export default connect(mapStateToProps)(FilteredRequirementsTable);

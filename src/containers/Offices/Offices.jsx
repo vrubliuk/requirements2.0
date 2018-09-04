@@ -1,6 +1,6 @@
 import React from "react";
 import "./Offices.css";
-import Table from "../../components/Table/Table.jsx";
+import SortedOfficesTable from "../../components/SortedOfficesTable/SortedOfficesTable.jsx"
 import { connect } from "react-redux";
 
 const Offices = ({ offices }) => {
@@ -34,7 +34,7 @@ const Offices = ({ offices }) => {
 
   return (
     <div className="Offices">
-      <div className="Offices__inner">{Object.keys(offices).length ? <Table table="offices" data={offices} columns={columns} /> : null}</div>
+      <div className="Offices__inner">{Object.keys(offices).length ? <SortedOfficesTable table="offices" data={offices} columns={columns} /> : null}</div>
     </div>
   );
 };
