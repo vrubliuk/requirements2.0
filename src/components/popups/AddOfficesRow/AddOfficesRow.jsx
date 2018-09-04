@@ -37,11 +37,11 @@ class AddOfficesRow extends Component {
           <div className="Modal__label">Office</div>
           <input className="Modal__input" type="text" required value={this.state.office} onChange={e => this.handleInput(e, "office")} />
           <div className="Modal__label">Abbreviation</div>
-          <input className="Modal__textarea" type="text" required value={this.state.abbreviation} onChange={e => this.handleInput(e, "abbreviation")} />
+          <input className="Modal__textarea" type="text" value={this.state.abbreviation} onChange={e => this.handleInput(e, "abbreviation")} />
           <div className="Modal__label">Leader</div>
-          <input className="Modal__input" type="text" required value={this.state.leader} onChange={e => this.handleInput(e, "leader")} />
+          <input className="Modal__input" type="text" value={this.state.leader} onChange={e => this.handleInput(e, "leader")} />
           <div className="Modal__label">GSM</div>
-          <input className="Modal__input" type="text" required value={this.state.GSM} onChange={e => this.handleInput(e, "GSM")} />
+          <input className="Modal__input" type="text" value={this.state.GSM} onChange={e => this.handleInput(e, "GSM")} />
           <div className="Modal__footer">
             <button style={{ background: color }} type="submit">
               Save
