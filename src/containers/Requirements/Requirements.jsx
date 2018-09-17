@@ -24,7 +24,8 @@ const columns = [
 class Requirements extends Component {
   state = {
     filterWidth: null,
-    filterTop: null
+    filterTop: null,
+    sortedData: []
   };
 
   innerContainer = React.createRef();
@@ -41,11 +42,39 @@ class Requirements extends Component {
     });
   };
 
+  transformToArray = data => {
+    return Object.keys(data).map(key => {
+      let values = {};
+      Object.keys(data[key]).forEach(value => {
+        values[value] = data[key][value];
+      });
+      return { key, ...values };
+    });
+  };
+
+  sortAlphabetically = data => {
+    return data.sort((a, b) => {
+      const x = a.customer.toLowerCase();
+      const y = b.customer.toLowerCase();
+      if (x > y) {
+        return 1;
+      }
+      if (x < y) {
+        return -1;
+      }
+      return 0;
+    });
+  };
+
   componentDidMount() {
     this.setWidth();
     this.setTop();
     window.addEventListener("resize", this.setWidth);
     window.addEventListener("scroll", this.setTop);
+    const transformedToArray = this.transformToArray(this.props.requirements);
+    this.setState({
+      sortedData: this.sortAlphabetically(transformedToArray)
+    });
   }
 
   componentWillUnmount() {
@@ -61,7 +90,7 @@ class Requirements extends Component {
           {Object.keys(this.props.requirements).length ? (
             <Fragment>
               <Filter width={this.state.filterWidth} top={this.state.filterTop} />
-              <FilteredRequirementsTable table="requirements" data={this.props.requirements} columns={columns} />
+              <FilteredRequirementsTable table="requirements" sortedData={this.state.sortedData} columns={columns} />
             </Fragment>
           ) : null}
         </div>
