@@ -66,15 +66,25 @@ class Requirements extends Component {
     });
   };
 
-  componentDidMount() {
-    this.setWidth();
-    this.setTop();
-    window.addEventListener("resize", this.setWidth);
-    window.addEventListener("scroll", this.setTop);
+  setSortedData() {
     const transformedToArray = this.transformToArray(this.props.requirements);
     this.setState({
       sortedData: this.sortAlphabetically(transformedToArray)
     });
+  }
+
+  componentDidMount() {
+    this.setWidth();
+    this.setTop();
+    this.setSortedData();
+    window.addEventListener("resize", this.setWidth);
+    window.addEventListener("scroll", this.setTop);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.requirements !== prevProps.requirements) {
+      this.setSortedData();
+    }
   }
 
   componentWillUnmount() {
