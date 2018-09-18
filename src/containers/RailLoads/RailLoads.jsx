@@ -35,11 +35,32 @@ const RailLoads = ({ railLoads1, railLoads2 }) => {
     }
   ];
 
+  const transformToArray = data => {
+    return Object.keys(data).map(key => {
+      let values = {};
+      Object.keys(data[key]).forEach(value => {
+        values[value] = data[key][value];
+      });
+      return { key, ...values };
+    });
+  };
+
+  let content1, content2;
+
+  if (Object.keys(railLoads1).length) {
+    const transformedRailLoads1 = transformToArray(railLoads1);
+    content1 = <Table table="railLoads1" data={transformedRailLoads1} columns={columns1} />;
+  }
+  if (Object.keys(railLoads2).length) {
+    const transformedRailLoads2 = transformToArray(railLoads2);
+    content2 = <Table table="railLoads2" data={transformedRailLoads2} columns={columns2} />;
+  }
+
   return (
     <div className="RailLoads">
       <div className="RailLoads__inner">
-        {Object.keys(railLoads1).length ? <Table table="railLoads1" data={railLoads1} columns={columns1} /> : null}
-        {Object.keys(railLoads2).length ? <Table table="railLoads2" data={railLoads2} columns={columns2} /> : null}
+        {content1}
+        {content2}
       </div>
     </div>
   );

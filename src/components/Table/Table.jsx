@@ -3,7 +3,7 @@ import "./Table.css";
 import TableRow from "../TableRow/TableRow.jsx";
 
 const Table = ({ table, data, columns }) => {
-  const rowsBody = Object.keys(data).map(key => <TableRow table={table} key={key} id={key} row={data[key]} columns={columns} />);
+  const rowsBody = data.map(row => <TableRow table={table} key={row.key} row={row} columns={columns} />);
   return (
     <table className="Table">
       <thead>

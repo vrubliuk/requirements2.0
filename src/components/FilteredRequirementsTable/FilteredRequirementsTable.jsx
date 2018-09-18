@@ -15,26 +15,14 @@ const FilteredRequirementsTable = ({ table, sortedData, columns, filter }) => {
     });
   };
 
-  const transformToObject = data => {
-    let obj = {};
-    data.forEach(item => {
-      obj[item.key] = {};
-      Object.keys(item).forEach(value => {
-        if (value !== "key") obj[item.key][value] = item[value];
-      });
-    });
-    return obj;
-  };
-
-  let filtered = sortedData;
-  filter && filter.type === "word" && (filtered = filteredByWord(sortedData));
-  filter && filter.type === "letter" && (filtered = filteredByLetter(sortedData));
-  const filteredData = transformToObject(filtered);
+  let filteredData = sortedData;
+  filter && filter.type === "word" && (filteredData = filteredByWord(sortedData));
+  filter && filter.type === "letter" && (filteredData = filteredByLetter(sortedData));
 
   return (
     <Fragment>
-      {filtered.length ? <Table table={table} data={filteredData} columns={columns} /> : null}
-      {filtered.length ? null : <div className="FilteredRequirementsTable__error">Nothing has been found</div>}
+      {filteredData.length ? <Table table={table} data={filteredData} columns={columns} /> : null}
+      {filteredData.length ? null : <div className="FilteredRequirementsTable__error">Nothing has been found</div>}
     </Fragment>
   );
 };

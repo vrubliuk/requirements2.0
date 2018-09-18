@@ -56,24 +56,11 @@ const Offices = ({ offices }) => {
     });
   };
 
-  const transformToObject = data => {
-    let obj = {};
-    data.forEach(item => {
-      obj[item.key] = {};
-      Object.keys(item).forEach(value => {
-        if (value !== "key") obj[item.key][value] = item[value];
-      });
-    });
-    return obj;
-  };
-
-  let sortedOffices, content;
+  let content;
 
   if (Object.keys(offices).length) {
     const transformedToArray = transformToArray(offices);
-    const sorted = sortAlphabetically(transformedToArray);
-    const transformedToObject = transformToObject(sorted);
-    sortedOffices = transformedToObject;
+    const sortedOffices = sortAlphabetically(transformedToArray);
     content = (
       <div className="Offices">
         <div className="Offices__inner">

@@ -7,7 +7,7 @@ import * as actionCreators from "../../store/actions/actionCreators";
 import Radium from "radium";
 import RS from "../buttons/RS/RS.jsx";
 
-const TableRow = ({ table, id, row, columns, location, token, showInModal }) => {
+const TableRow = ({ table, row, columns, location, token, showInModal }) => {
   let rowColumns;
   let style = null;
 
@@ -21,7 +21,7 @@ const TableRow = ({ table, id, row, columns, location, token, showInModal }) => 
     rowColumns = columns.map((column, i) => {
       let rs = null;
       if (table === "requirements" && column.name === "documentation" && (row.releaseSheetLink || row.releaseSheetAE)) {
-        rs = <RS id={id} />;
+        rs = <RS id={row.key} />;
       }
 
       return (
@@ -58,7 +58,7 @@ const TableRow = ({ table, id, row, columns, location, token, showInModal }) => 
   const handleDoubleClick = () => {
     showInModal(popups[location.pathname], {
       table,
-      id,
+      id: row.key,
       row
     });
   };
