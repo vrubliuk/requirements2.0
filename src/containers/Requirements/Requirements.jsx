@@ -1,34 +1,28 @@
-import React, { Component, Fragment } from "react";
+import React, { Fragment } from "react";
 import "./Requirements.css";
 import FilteredRequirementsTable from "../../components/FilteredRequirementsTable/FilteredRequirementsTable.jsx";
 import Filter from "../../components/Filter/Filter.jsx";
 import { connect } from "react-redux";
 
-const columns = [
-  {
-    name: "customer",
-    style: {
-      width: "30%",
-      textTransform: "uppercase"
+const Requirements = ({ requirements }) => {
+  const columns = [
+    {
+      name: "customer",
+      style: {
+        width: "30%",
+        textTransform: "uppercase"
+      }
+    },
+    {
+      name: "documentation",
+      style: {
+        width: "70%",
+        fontSize: "0.9rem"
+      }
     }
-  },
-  {
-    name: "documentation",
-    style: {
-      width: "70%",
-      fontSize: "0.9rem"
-    }
-  }
-];
+  ];
 
-class Requirements extends Component {
-  state = {
-    sortedData: []
-  };
-
-  innerContainer = React.createRef();
-
-  transformToArray = data => {
+  const transformToArray = data => {
     return Object.keys(data).map(key => {
       let values = {};
       Object.keys(data[key]).forEach(value => {
@@ -38,7 +32,7 @@ class Requirements extends Component {
     });
   };
 
-  sortAlphabetically = data => {
+  const sortAlphabetically = data => {
     return data.sort((a, b) => {
       const x = a.customer.toLowerCase();
       const y = b.customer.toLowerCase();
@@ -52,39 +46,23 @@ class Requirements extends Component {
     });
   };
 
-  setSortedData() {
-    const transformedToArray = this.transformToArray(this.props.requirements);
-    this.setState({
-      sortedData: this.sortAlphabetically(transformedToArray)
-    });
-  }
+  const transformedToArray = transformToArray(requirements);
+  const sortedData = sortAlphabetically(transformedToArray);
 
-  componentDidMount() {
-    this.setSortedData();
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.requirements !== prevProps.requirements) {
-      this.setSortedData();
-    }
-  }
-
-  render() {
-    return (
-      <div className="Requirements">
-        <div className="Requirements__inner" ref={this.innerContainer}>
-          <div className="Requirements__cover" />
-          {Object.keys(this.state.sortedData).length ? (
-            <Fragment>
-              <Filter container={this.innerContainer}/>
-              <FilteredRequirementsTable table="requirements" sortedData={this.state.sortedData} columns={columns} />
-            </Fragment>
-          ) : null}
-        </div>
+  return (
+    <div className="Requirements">
+      <div className="Requirements__inner">
+        <div className="Requirements__cover" />
+        {sortedData.length ? (
+          <Fragment>
+            <Filter />
+            <FilteredRequirementsTable table="requirements" sortedData={sortedData} columns={columns} />
+          </Fragment>
+        ) : null}
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 const mapStateToProps = state => {
   return {

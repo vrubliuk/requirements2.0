@@ -5,7 +5,7 @@ import * as actionCreators from "../../../store/actions/actionCreators";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
-const Add = ({ location, showInModal }) => {
+const Add = ({ token, location, showInModal }) => {
   const color = colors[location.pathname].dark;
   const popups = {
     "/": "AddRequirementsRow",
@@ -17,11 +17,17 @@ const Add = ({ location, showInModal }) => {
     showInModal(popups[location.pathname]);
   };
 
-  return (
+  return token ? (
     <div className="Add" style={{ background: color }} onClick={handleClick}>
       <i className="fa fa-plus" aria-hidden="true" />
     </div>
-  );
+  ) : null;
+};
+
+const mapStateToProps = state => {
+  return {
+    token: state.auth.token
+  };
 };
 
 const mapDispatchToProps = dispatch => {
@@ -32,7 +38,7 @@ const mapDispatchToProps = dispatch => {
 
 export default withRouter(
   connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
   )(Add)
 );

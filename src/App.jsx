@@ -14,26 +14,13 @@ import Add from "./components/buttons/Add/Add.jsx";
 import Up from "./components/buttons/Up/Up.jsx";
 
 class App extends Component {
-  state = {
-    showUp: false
-  };
-
-  watchTop = () => {
-    this.setState({
-      showUp: document.documentElement.scrollTop > 25 ? true : false
-    });
-  };
-
   componentDidMount() {
     this.props.updateData();
     this.interval = setInterval(() => this.props.updateData(), 1800000);
-    this.watchTop();
-    window.addEventListener("scroll", this.watchTop);
   }
 
   componentWillUnmount() {
     clearInterval(this.interval);
-    window.removeEventListener("scroll", this.watchTop);
   }
 
   render() {
@@ -51,9 +38,9 @@ class App extends Component {
               <Route path="/rail-loads" exact component={RailLoads} />
               <Redirect to="/" />
             </Switch>
-            {this.props.token && <Add />}
-            {this.state.showUp && <Up />}
-            {this.props.modal && <Modal />}
+            <Add />
+            <Up />
+            <Modal />
           </Fragment>
         )}
       </div>
@@ -63,9 +50,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    spinner: state.temp.spinner,
-    modal: state.temp.modal,
-    token: state.auth.token
+    spinner: state.temp.spinner
   };
 };
 

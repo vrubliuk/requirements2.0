@@ -16,7 +16,7 @@ class Filter extends Component {
 
   setWidth = () => {
     this.setState({
-      filterWidth: this.props.container.current.offsetWidth
+      filterWidth: document.getElementsByClassName("Requirements__inner")[0].offsetWidth
     });
   };
 

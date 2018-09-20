@@ -13,26 +13,28 @@ import EditOfficesRow from "../../components/popups/EditOfficesRow/EditOfficesRo
 import EditRailLoadsRow from "../../components/popups/EditRailLoadsRow/EditRailLoadsRow.jsx";
 
 const Modal = ({ modal, loader }) => {
-  const popups = {
-    Auth: <Auth />,
-    AddRequirementsRow: <AddRequirementsRow />,
-    AddOfficesRow: <AddOfficesRow />,
-    AddRailLoadsRow: <AddRailLoadsRow />,
-    RSInfo: <RSInfo data={modal.data} />,
-    EditRequirementsRow: <EditRequirementsRow data={modal.data} />,
-    EditOfficesRow: <EditOfficesRow data={modal.data} />,
-    EditRailLoadsRow: <EditRailLoadsRow data={modal.data} />
+  const popups = () => {
+    return {
+      Auth: <Auth />,
+      AddRequirementsRow: <AddRequirementsRow />,
+      AddOfficesRow: <AddOfficesRow />,
+      AddRailLoadsRow: <AddRailLoadsRow />,
+      RSInfo: <RSInfo data={modal.data} />,
+      EditRequirementsRow: <EditRequirementsRow data={modal.data} />,
+      EditOfficesRow: <EditOfficesRow data={modal.data} />,
+      EditRailLoadsRow: <EditRailLoadsRow data={modal.data} />
+    };
   };
 
-  return (
+  return modal ? (
     <div className="Modal">
       <div className="Modal__inner">
-        {popups[modal.component]}
+        {popups()[modal.component]}
         <Close />
         {loader && <Loader />}
       </div>
     </div>
-  );
+  ) : null;
 };
 
 const mapStateToProps = state => {
