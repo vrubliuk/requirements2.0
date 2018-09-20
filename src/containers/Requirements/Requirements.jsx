@@ -23,24 +23,10 @@ const columns = [
 
 class Requirements extends Component {
   state = {
-    filterWidth: null,
-    filterTop: null,
     sortedData: []
   };
 
   innerContainer = React.createRef();
-
-  setWidth = () => {
-    this.setState({
-      filterWidth: this.innerContainer.current.offsetWidth
-    });
-  };
-
-  setTop = () => {
-    this.setState({
-      filterTop: document.documentElement.scrollTop > 25 ? 0 : 25
-    });
-  };
 
   transformToArray = data => {
     return Object.keys(data).map(key => {
@@ -74,11 +60,7 @@ class Requirements extends Component {
   }
 
   componentDidMount() {
-    this.setWidth();
-    this.setTop();
     this.setSortedData();
-    window.addEventListener("resize", this.setWidth);
-    window.addEventListener("scroll", this.setTop);
   }
 
   componentDidUpdate(prevProps) {
@@ -87,19 +69,14 @@ class Requirements extends Component {
     }
   }
 
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.setWidth);
-    window.removeEventListener("scroll", this.setTop);
-  }
-
   render() {
     return (
       <div className="Requirements">
         <div className="Requirements__inner" ref={this.innerContainer}>
-          <div className="Requirements__cover" style={{ width: this.state.filterWidth }} />
-          {Object.keys(this.props.requirements).length ? (
+          <div className="Requirements__cover" />
+          {Object.keys(this.state.sortedData).length ? (
             <Fragment>
-              <Filter width={this.state.filterWidth} top={this.state.filterTop} />
+              <Filter container={this.innerContainer}/>
               <FilteredRequirementsTable table="requirements" sortedData={this.state.sortedData} columns={columns} />
             </Fragment>
           ) : null}

@@ -5,12 +5,27 @@ import * as actionCreators from "../../store/actions/actionCreators";
 
 class Filter extends Component {
   state = {
+    filterWidth: null,
+    filterTop: null,
     letter: null,
     word: "",
     by: "customer",
     showByList: false,
     additionalInputStyle: null
   };
+
+  setWidth = () => {
+    this.setState({
+      filterWidth: this.props.container.current.offsetWidth
+    });
+  };
+
+  setTop = () => {
+    this.setState({
+      filterTop: document.documentElement.scrollTop > 25 ? 0 : 25
+    });
+  };
+
   setFilterAs = type => {
     this.props.setFilter({
       type,
@@ -18,6 +33,7 @@ class Filter extends Component {
       by: this.state.by
     });
   };
+
   updateFilterBy = () => {
     this.props.filter !== null &&
       this.props.setFilter({
@@ -26,12 +42,13 @@ class Filter extends Component {
         by: this.state.by
       });
   };
+
   clearFilter = () => {
     this.props.setFilter(null);
   };
 
   toggleInputStyle = () => {
-    this.state.word ? this.setState({ additionalInputStyle: { width: this.props.width, borderRight: "4px solid #333333" } }) : this.setState({ additionalInputStyle: null });
+    this.state.word ? this.setState({ additionalInputStyle: { width: this.state.filterWidth, borderRight: "4px solid #333333" } }) : this.setState({ additionalInputStyle: null });
   };
 
   handleClickCaret = () => {
@@ -76,6 +93,18 @@ class Filter extends Component {
         });
   };
 
+  componentDidMount() {
+    this.setWidth();
+    this.setTop();
+    window.addEventListener("resize", this.setWidth);
+    window.addEventListener("scroll", this.setTop);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.setWidth);
+    window.removeEventListener("scroll", this.setTop);
+  }
+
   render() {
     const byList = ["customer", "documentation"].map((by, i) => {
       return (
@@ -97,7 +126,7 @@ class Filter extends Component {
     });
 
     return (
-      <div className="Filter" style={{ width: this.props.width, top: this.props.top }}>
+      <div className="Filter" style={{ width: this.state.filterWidth, top: this.state.filterTop }}>
         <div className="Filter__part">
           <div className="Filter__icon Filter__icon-caret" onClick={this.handleClickCaret}>
             <i className={`fa fa-caret-${this.state.showByList ? "up" : "down"}`} aria-hidden="true" />
