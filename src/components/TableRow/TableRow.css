@@ -2,18 +2,6 @@
   font-size: 1.1rem;
 }
 
-.TableRow__requirements:hover {
-  background-color: rgba(244,67,54, 0.1) !important;
-}
-
-.TableRow__offices:hover {
-  background-color: rgba(33,150,243, 0.1) !important;
-}
-
-.TableRow__railLoads:hover {
-  background-color: rgba(76,175,80, 0.1) !important;
-}
-
 .TableRow > * {
   border: 1px solid #ddd;
 }

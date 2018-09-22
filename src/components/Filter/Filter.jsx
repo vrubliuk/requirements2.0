@@ -60,7 +60,7 @@ class Filter extends Component {
   };
 
   handleClickBy = by => {
-    this.setState({ by, showByList: false }, () => {
+    this.setState({ by }, () => {
       this.updateFilterBy();
     });
   };
@@ -101,7 +101,6 @@ class Filter extends Component {
   }
 
   componentWillUnmount() {
-    this.clearFilter();
     window.removeEventListener("resize", this.setWidth);
     window.removeEventListener("scroll", this.setTop);
   }
