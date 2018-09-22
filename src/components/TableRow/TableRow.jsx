@@ -1,15 +1,12 @@
 import React from "react";
 import "./TableRow.css";
-import colors from "../../assets/colors";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions/actionCreators";
-import Radium from "radium";
 import RS from "../buttons/RS/RS.jsx";
 
 const TableRow = ({ table, row, columns, location, token, showInModal }) => {
   let rowColumns;
-  let style = null;
 
   if (row === "heading") {
     rowColumns = columns.map((column, i) => (
@@ -25,7 +22,7 @@ const TableRow = ({ table, row, columns, location, token, showInModal }) => {
       }
 
       return (
-        <td style={column.style} key={i}>
+        <td className={`TableRow__${column.name}`} style={column.style} key={i}>
           <div>
             <span>
               {
@@ -42,21 +39,27 @@ const TableRow = ({ table, row, columns, location, token, showInModal }) => {
         </td>
       );
     });
-    style = {
-      ":hover": {
-        background: colors[location.pathname].light
-      }
-    };
   }
 
-  const popups = {
-    "/": "EditRequirementsRow",
-    "/offices": "EditOfficesRow",
-    "/rail-loads": "EditRailLoadsRow"
+  const options = {
+    "/": {
+      popup: "EditRequirementsRow",
+      class: "requirements"
+    },
+    "/offices": {
+      popup: "EditOfficesRow",
+      class: "offices"
+    },
+    "/rail-loads": {
+      popup: "EditRailLoadsRow",
+      class: "railLoads"
+    }
   };
 
+  const additionalClass = row !== "heading" ? `TableRow__${options[location.pathname].class}` : null;
+
   const handleDoubleClick = () => {
-    showInModal(popups[location.pathname], {
+    showInModal(options[location.pathname].popup, {
       table,
       id: row.key,
       row
@@ -64,7 +67,7 @@ const TableRow = ({ table, row, columns, location, token, showInModal }) => {
   };
 
   return (
-    <tr className="TableRow" style={style} onDoubleClick={row !== "heading" && token ? handleDoubleClick : null}>
+    <tr className={`TableRow ${additionalClass}`} onDoubleClick={row !== "heading" && token ? handleDoubleClick : null}>
       {rowColumns}
     </tr>
   );
@@ -86,5 +89,5 @@ export default withRouter(
   connect(
     mapStateToProps,
     mapDispatchToProps
-  )(Radium(TableRow))
+  )(TableRow)
 );

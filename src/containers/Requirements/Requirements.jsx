@@ -1,7 +1,8 @@
 import React, { Fragment } from "react";
 import "./Requirements.css";
-import FilteredRequirementsTable from "../../components/FilteredRequirementsTable/FilteredRequirementsTable.jsx";
+import Table from "../../components/Table/Table.jsx";
 import Filter from "../../components/Filter/Filter.jsx";
+import ManipulatorDOM from "../../auxiliary/ManipulatorDOM/ManipulatorDOM.jsx";
 import { connect } from "react-redux";
 
 const Requirements = ({ requirements }) => {
@@ -56,7 +57,11 @@ const Requirements = ({ requirements }) => {
         {sortedData.length ? (
           <Fragment>
             <Filter />
-            <FilteredRequirementsTable table="requirements" sortedData={sortedData} columns={columns} />
+            <Table table="requirements" data={sortedData} columns={columns} />
+            <div className="Requirements__error" id="lol">
+              Nothing has been found
+            </div>
+            <ManipulatorDOM />
           </Fragment>
         ) : null}
       </div>
