@@ -7,7 +7,7 @@ smoothscroll.polyfill();
 
 class Up extends Component {
   state = {
-    show: false
+    show: false,
   };
 
   handleClick = () => {
@@ -16,7 +16,7 @@ class Up extends Component {
 
   watchTop = () => {
     this.setState({
-      show: document.documentElement.scrollTop > 25 ? true : false
+      show: document.documentElement.scrollTop > 25 ? true : false,
     });
   };
 
@@ -30,7 +30,7 @@ class Up extends Component {
   }
 
   render() {
-    const color = colors[this.props.location.pathname].dark;
+    const color = colors[this.props.location.pathname] && colors[this.props.location.pathname].dark;
 
     return this.state.show ? (
       <div className="Up" style={{ background: color }} onClick={this.handleClick}>

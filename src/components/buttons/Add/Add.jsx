@@ -6,7 +6,7 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 const Add = ({ token, location, showInModal }) => {
-  const color = colors[location.pathname].dark;
+  const color = colors[location.pathname] && colors[location.pathname].dark;
   const popups = {
     "/": "AddRequirementsRow",
     "/agent": "AddAgentRequirementsRow",
