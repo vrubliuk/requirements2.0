@@ -4,7 +4,7 @@ import "./index.css";
 import "font-awesome/css/font-awesome.min.css";
 import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import createSagaMiddleware from "redux-saga";
@@ -31,9 +31,9 @@ sagaMiddleware.run(watchData);
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <HashRouter>
       <App />
-    </BrowserRouter>
+    </HashRouter>
   </Provider>,
   document.getElementById("root")
 );
