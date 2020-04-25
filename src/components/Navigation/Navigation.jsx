@@ -6,20 +6,24 @@ const Navigation = () => {
   const navs = [
     {
       name: "Requirements",
-      to: "/"
+      to: "/",
+    },
+    {
+      name: "Agent 1.0",
+      to: "/agent",
     },
     {
       name: "Offices",
-      to: "/offices"
+      to: "/offices",
     },
     {
       name: "Rail loads",
-      to: "/rail-loads"
+      to: "/rail-loads",
     },
     {
       name: "Invoicing",
-      to: "https://vrubliuk.github.io/invoicing/"
-    }
+      to: "https://vrubliuk.github.io/invoicing/",
+    },
   ].map((nav, i) => {
     return (
       <Nav to={nav.to} key={i}>

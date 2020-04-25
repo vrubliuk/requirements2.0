@@ -10,21 +10,21 @@ class AddRequirementsRow extends Component {
     customer: "",
     documentation: "",
     releaseSheetLink: "",
-    releaseSheetAE: ""
+    releaseSheetAE: "",
   };
   handleInput = (e, type) => {
     this.setState({
-      [type]: e.target.value
+      [type]: e.target.value,
     });
   };
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     if (!e.target.checkValidity()) return;
     e.preventDefault();
-    this.props.initAddRow("requirements", {
+    this.props.initAddRow(this.props.table, {
       customer: this.state.customer.trim(),
       documentation: this.state.documentation.trim(),
       releaseSheetLink: this.state.releaseSheetLink.trim(),
-      releaseSheetAE: this.state.releaseSheetAE.trim()
+      releaseSheetAE: this.state.releaseSheetAE.trim(),
     });
   };
 
@@ -35,13 +35,13 @@ class AddRequirementsRow extends Component {
         <div className="Modal__title">Add row</div>
         <form className="Modal__form" onSubmit={this.handleSubmit}>
           <div className="Modal__label">Customer</div>
-          <input className="Modal__input" type="text" required value={this.state.customer} onChange={e => this.handleInput(e, "customer")} />
+          <input className="Modal__input" type="text" required value={this.state.customer} onChange={(e) => this.handleInput(e, "customer")} />
           <div className="Modal__label">Documentation</div>
-          <textarea className="Modal__textarea" required value={this.state.documentation} onChange={e => this.handleInput(e, "documentation")} />
+          <textarea className="Modal__textarea" required value={this.state.documentation} onChange={(e) => this.handleInput(e, "documentation")} />
           <div className="Modal__label">Release sheet link on shared drive</div>
-          <input className="Modal__input" type="text" value={this.state.releaseSheetLink} onChange={e => this.handleInput(e, "releaseSheetLink")} />
+          <input className="Modal__input" type="text" value={this.state.releaseSheetLink} onChange={(e) => this.handleInput(e, "releaseSheetLink")} />
           <div className="Modal__label">Responsible AE for release sheet</div>
-          <input className="Modal__input" type="text" value={this.state.releaseSheetAE} onChange={e => this.handleInput(e, "releaseSheetAE")} />
+          <input className="Modal__input" type="text" value={this.state.releaseSheetAE} onChange={(e) => this.handleInput(e, "releaseSheetAE")} />
           <div className="Modal__footer">
             <button style={{ background: color }} type="submit">
               Save
@@ -53,15 +53,10 @@ class AddRequirementsRow extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    initAddRow: (table, row) => dispatch(actionCreators.initAddRow(table, row))
+    initAddRow: (table, row) => dispatch(actionCreators.initAddRow(table, row)),
   };
 };
 
-export default withRouter(
-  connect(
-    null,
-    mapDispatchToProps
-  )(AddRequirementsRow)
-);
+export default withRouter(connect(null, mapDispatchToProps)(AddRequirementsRow));

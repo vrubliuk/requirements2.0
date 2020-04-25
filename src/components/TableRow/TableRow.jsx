@@ -20,8 +20,8 @@ const TableRow = ({ table, row, columns, location, token, showInModal }) => {
   } else {
     rowColumns = columns.map((column, i) => {
       let rs = null;
-      if (table === "requirements" && column.name === "documentation" && (row.releaseSheetLink || row.releaseSheetAE)) {
-        rs = <RS id={row.key} />;
+      if ((table === "requirements" || table === "agentRequirements") && column.name === "documentation" && (row.releaseSheetLink || row.releaseSheetAE)) {
+        rs = <RS table={table} id={row.key} />;
       }
 
       return (
@@ -44,22 +44,23 @@ const TableRow = ({ table, row, columns, location, token, showInModal }) => {
     });
     style = {
       ":hover": {
-        background: colors[location.pathname].light
-      }
+        background: colors[location.pathname].light,
+      },
     };
   }
 
   const popups = {
     "/": "EditRequirementsRow",
+    "/agent": "EditAgentRequirementsRow",
     "/offices": "EditOfficesRow",
-    "/rail-loads": "EditRailLoadsRow"
+    "/rail-loads": "EditRailLoadsRow",
   };
 
   const handleDoubleClick = () => {
     showInModal(popups[location.pathname], {
       table,
       id: row.key,
-      row
+      row,
     });
   };
 
@@ -70,21 +71,16 @@ const TableRow = ({ table, row, columns, location, token, showInModal }) => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    token: state.auth.token
+    token: state.auth.token,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    showInModal: (component, data) => dispatch(actionCreators.showInModal(component, data))
+    showInModal: (component, data) => dispatch(actionCreators.showInModal(component, data)),
   };
 };
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Radium(TableRow))
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Radium(TableRow)));

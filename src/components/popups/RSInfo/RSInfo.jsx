@@ -2,8 +2,8 @@ import React, { Fragment } from "react";
 import "./RSInfo.css";
 import { connect } from "react-redux";
 
-const RSInfo = ({ requirements, data }) => {
-  const row = requirements[data];
+const RSInfo = ({ table, requirements, agentRequirements, data }) => {
+  const row = (table === "requirements" ? requirements : agentRequirements)[data];
 
   return (
     <div className="RSInfo">
@@ -26,9 +26,10 @@ const RSInfo = ({ requirements, data }) => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    requirements: state.data.requirements
+    requirements: state.data.requirements,
+    agentRequirements: state.data.agentRequirements,
   };
 };
 

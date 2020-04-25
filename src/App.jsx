@@ -33,7 +33,8 @@ class App extends Component {
             <Navigation />
             <Log />
             <Switch>
-              <Route path="/" exact component={Requirements} />
+              <Route path="/" exact render={() => <Requirements table="requirements" />} />
+              <Route path="/agent" exact render={() => <Requirements table="agentRequirements" />} />
               <Route path="/offices" exact component={Offices} />
               <Route path="/rail-loads" exact component={RailLoads} />
               <Redirect to="/" />
@@ -48,21 +49,16 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    spinner: state.temp.spinner
+    spinner: state.temp.spinner,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    updateData: () => dispatch(actionCreators.updateData())
+    updateData: () => dispatch(actionCreators.updateData()),
   };
 };
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(App)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

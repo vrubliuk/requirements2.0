@@ -16,13 +16,16 @@ const Modal = ({ modal, loader }) => {
   const popups = () => {
     return {
       Auth: <Auth />,
-      AddRequirementsRow: <AddRequirementsRow />,
+      AddRequirementsRow: <AddRequirementsRow table="requirements" />,
+      AddAgentRequirementsRow: <AddRequirementsRow table="agentRequirements" />,
       AddOfficesRow: <AddOfficesRow />,
       AddRailLoadsRow: <AddRailLoadsRow />,
-      RSInfo: <RSInfo data={modal.data} />,
-      EditRequirementsRow: <EditRequirementsRow data={modal.data} />,
+      RSInfo: <RSInfo table="requirements" data={modal.data} />,
+      AgentRSInfo: <RSInfo table="agentRequirements" data={modal.data} />,
+      EditRequirementsRow: <EditRequirementsRow table="requirements" data={modal.data} />,
+      EditAgentRequirementsRow: <EditRequirementsRow table="agentRequirements" data={modal.data} />,
       EditOfficesRow: <EditOfficesRow data={modal.data} />,
-      EditRailLoadsRow: <EditRailLoadsRow data={modal.data} />
+      EditRailLoadsRow: <EditRailLoadsRow data={modal.data} />,
     };
   };
 
@@ -37,10 +40,10 @@ const Modal = ({ modal, loader }) => {
   ) : null;
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     modal: state.temp.modal,
-    loader: state.temp.loader
+    loader: state.temp.loader,
   };
 };
 

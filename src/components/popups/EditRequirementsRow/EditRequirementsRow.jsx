@@ -12,34 +12,34 @@ class EditRequirementsRow extends Component {
     documentation: "",
     releaseSheetLink: "",
     releaseSheetAE: "",
-    showDeletionConfirmation: false
+    showDeletionConfirmation: false,
   };
 
   updateInputs = () => {
-    Object.keys(this.props.data.row).forEach(cell => {
+    Object.keys(this.props.data.row).forEach((cell) => {
       this.setState({ [cell]: this.props.data.row[cell] });
     });
   };
 
   handleInput = (e, type) => {
     this.setState({
-      [type]: e.target.value
+      [type]: e.target.value,
     });
   };
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     if (!e.target.checkValidity()) return;
     e.preventDefault();
-    this.props.initUpdateRow("requirements", this.props.data.id, {
+    this.props.initUpdateRow(this.props.table, this.props.data.id, {
       customer: this.state.customer.trim(),
       documentation: this.state.documentation.trim(),
       releaseSheetLink: this.state.releaseSheetLink.trim(),
-      releaseSheetAE: this.state.releaseSheetAE.trim()
+      releaseSheetAE: this.state.releaseSheetAE.trim(),
     });
   };
 
   handleDelete = () => {
-    this.props.initDeleteRow("requirements", this.props.data.id);
+    this.props.initDeleteRow(this.props.table, this.props.data.id);
   };
 
   componentDidMount() {
@@ -71,7 +71,7 @@ class EditRequirementsRow extends Component {
             Are you sure you want to delete this row?
           </div>
         </div>
-      )
+      ),
     };
 
     return (
@@ -79,13 +79,13 @@ class EditRequirementsRow extends Component {
         <div className="Modal__title">Edit row</div>
         <form className="Modal__form" onSubmit={this.handleSubmit}>
           <div className="Modal__label">Customer</div>
-          <input className="Modal__input" type="text" required value={this.state.customer} onChange={e => this.handleInput(e, "customer")} />
+          <input className="Modal__input" type="text" required value={this.state.customer} onChange={(e) => this.handleInput(e, "customer")} />
           <div className="Modal__label">Documentation</div>
-          <textarea className="Modal__textarea" required value={this.state.documentation} onChange={e => this.handleInput(e, "documentation")} />
+          <textarea className="Modal__textarea" required value={this.state.documentation} onChange={(e) => this.handleInput(e, "documentation")} />
           <div className="Modal__label">Release sheet link on shared drive</div>
-          <input className="Modal__input" type="text" value={this.state.releaseSheetLink} onChange={e => this.handleInput(e, "releaseSheetLink")} />
+          <input className="Modal__input" type="text" value={this.state.releaseSheetLink} onChange={(e) => this.handleInput(e, "releaseSheetLink")} />
           <div className="Modal__label">Responsible AE for release sheet</div>
-          <input className="Modal__input" type="text" value={this.state.releaseSheetAE} onChange={e => this.handleInput(e, "releaseSheetAE")} />
+          <input className="Modal__input" type="text" value={this.state.releaseSheetAE} onChange={(e) => this.handleInput(e, "releaseSheetAE")} />
           {!this.state.showDeletionConfirmation ? footers[1] : footers[2]}
         </form>
       </div>
@@ -93,16 +93,11 @@ class EditRequirementsRow extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     initUpdateRow: (table, id, row) => dispatch(actionCreators.initUpdateRow(table, id, row)),
-    initDeleteRow: (table, id) => dispatch(actionCreators.initDeleteRow(table, id))
+    initDeleteRow: (table, id) => dispatch(actionCreators.initDeleteRow(table, id)),
   };
 };
 
-export default withRouter(
-  connect(
-    null,
-    mapDispatchToProps
-  )(EditRequirementsRow)
-);
+export default withRouter(connect(null, mapDispatchToProps)(EditRequirementsRow));

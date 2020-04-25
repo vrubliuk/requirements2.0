@@ -4,35 +4,35 @@ import FilteredRequirementsTable from "../../components/FilteredRequirementsTabl
 import Filter from "../../components/Filter/Filter.jsx";
 import { connect } from "react-redux";
 
-const Requirements = ({ requirements }) => {
+const Requirements = ({ table, requirements, agentRequirements }) => {
   const columns = [
     {
       name: "customer",
       style: {
         width: "30%",
-        textTransform: "uppercase"
-      }
+        textTransform: "uppercase",
+      },
     },
     {
       name: "documentation",
       style: {
         width: "70%",
-        fontSize: "0.9rem"
-      }
-    }
+        fontSize: "0.9rem",
+      },
+    },
   ];
 
-  const transformToArray = data => {
-    return Object.keys(data).map(key => {
+  const transformToArray = (data) => {
+    return Object.keys(data).map((key) => {
       let values = {};
-      Object.keys(data[key]).forEach(value => {
+      Object.keys(data[key]).forEach((value) => {
         values[value] = data[key][value];
       });
       return { key, ...values };
     });
   };
 
-  const sortAlphabetically = data => {
+  const sortAlphabetically = (data) => {
     return data.sort((a, b) => {
       const x = a.customer.toLowerCase();
       const y = b.customer.toLowerCase();
@@ -46,27 +46,26 @@ const Requirements = ({ requirements }) => {
     });
   };
 
-  const transformedToArray = transformToArray(requirements);
+  const transformedToArray = transformToArray(table === "requirements" ? requirements : agentRequirements);
   const sortedData = sortAlphabetically(transformedToArray);
 
   return (
     <div className="Requirements">
       <div className="Requirements__inner">
         <div className="Requirements__cover" />
-        {sortedData.length ? (
-          <Fragment>
-            <Filter />
-            <FilteredRequirementsTable table="requirements" sortedData={sortedData} columns={columns} />
-          </Fragment>
-        ) : null}
+        <Fragment>
+          <Filter />
+          <FilteredRequirementsTable table={table} sortedData={sortedData} columns={columns} />
+        </Fragment>
       </div>
     </div>
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    requirements: state.data.requirements
+    requirements: state.data.requirements,
+    agentRequirements: state.data.agentRequirements,
   };
 };
 

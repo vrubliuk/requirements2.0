@@ -1,27 +1,28 @@
 import React from "react";
 import "./RS.css";
+import colors from "../../../assets/colors";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actionCreators from "../../../store/actions/actionCreators";
 
-const RS = ({ id, showInModal }) => {
+const RS = ({ location, table, id, showInModal }) => {
+  const color = colors[location.pathname].dark;
+
   const handleClick = () => {
-    showInModal("RSInfo", id);
+    showInModal(table === "requirements" ? "RSInfo" : "AgentRSInfo", id);
   };
 
   return (
-    <div className="RS" onClick={handleClick}>
+    <div className="RS" style={{ backgroundColor: color }} onClick={handleClick}>
       RS
     </div>
   );
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    showInModal: (component, data) => dispatch(actionCreators.showInModal(component, data))
+    showInModal: (component, data) => dispatch(actionCreators.showInModal(component, data)),
   };
 };
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(RS);
+export default withRouter(connect(null, mapDispatchToProps)(RS));

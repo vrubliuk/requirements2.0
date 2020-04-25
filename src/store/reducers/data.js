@@ -3,9 +3,10 @@ import updateState from "../utility/updateState";
 
 const initialState = {
   requirements: {},
+  agentRequirements: {},
   offices: {},
   railLoads1: {},
-  railLoads2: {}
+  railLoads2: {},
 };
 
 const setData = (state, action) => {

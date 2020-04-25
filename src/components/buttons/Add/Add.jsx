@@ -9,8 +9,9 @@ const Add = ({ token, location, showInModal }) => {
   const color = colors[location.pathname].dark;
   const popups = {
     "/": "AddRequirementsRow",
+    "/agent": "AddAgentRequirementsRow",
     "/offices": "AddOfficesRow",
-    "/rail-loads": "AddRailLoadsRow"
+    "/rail-loads": "AddRailLoadsRow",
   };
 
   const handleClick = () => {
@@ -24,21 +25,16 @@ const Add = ({ token, location, showInModal }) => {
   ) : null;
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    token: state.auth.token
+    token: state.auth.token,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    showInModal: component => dispatch(actionCreators.showInModal(component))
+    showInModal: (component) => dispatch(actionCreators.showInModal(component)),
   };
 };
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Add)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Add));
